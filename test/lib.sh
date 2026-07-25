@@ -119,6 +119,7 @@ case "$tv" in
 esac
 
 $AC uninstall "$APP" >/dev/null 2>&1 && echo "uninstall=PASS" || echo "uninstall=FAIL"
+command -v docker >/dev/null 2>&1 && docker system prune -af >/dev/null 2>&1   # bound disk for docker apps (no-op for native)
 rm -f "$FPK"
 REMOTE
 }

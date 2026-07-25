@@ -68,13 +68,17 @@ injection); everything after first boot is scriptable / web-drivable.
 cd fnos-apps/test
 cp config.env.example config.env       # set VM ip/user/pass, volume, arch
 ./test-app.sh syncthing                # one app
-./run-all.sh native                    # all native apps -> report.md
+./run-all.sh native                    # all native apps -> report-native.md
 ./run-all.sh native syncthing gopeed   # just these
 ./test-volume-safety.sh                # #189 regression (needs /vol1 + /vol2)
 ```
 
-Docker apps (`app_type: docker`) are skipped by `native`; run `./run-all.sh docker`
-only on a VM with the Docker app installed and enough disk for image pulls.
+**Docker apps** (`app_type: docker`) are skipped by the `native` filter. To test
+them, first provision the fnOS **Docker app**: open it on the desktop and
+initialise its storage onto a volume (e.g. `/vol2`). Without that, appcenter-cli
+fails docker installs with `code 12000`. Then `./run-all.sh docker` (or a slug
+list) -> `report-docker.md`. The `port` check is a *hard* signal for docker apps
+(they bind the host port), unlike gateway-fronted native apps.
 
 ## #189 data-loss — validated on fnOS 1.2.0203
 
@@ -94,16 +98,13 @@ only on a VM with the Docker app installed and enough disk for image pulls.
 - The graphical Debian install step is manual.
 - `-v`/`--volume` and `install-local --dir` are undocumented-but-working
   appcenter-cli flags (see `docs`), relied on here as the store does.
-- **Docker apps are not covered on a plain VM.** Empirically, on fnOS 1.2.0203
-  both `install-fpk` and `install-local` fail docker apps with `[Error]Something
-  wrong with appcenter: code 12000` (install-fpk then nil-panics) — even after the
-  compose images are pre-pulled with mirror/`${VERSION}` substitution. Running
-  `dockerd`/`dockermgr` is not enough: the fnOS **Docker system app** must be
-  installed/initialised (from the official fnnas app center) to provide the
-  app-center docker integration appcenter needs. That, plus GB-scale image pulls
-  for 91 apps against 2×20 GB volumes, makes a full docker matrix impractical on
-  this test VM — run docker apps on a dedicated, larger box with the Docker app
-  installed. `run-all.sh docker` exists but expects such a box.
+- **Docker apps need the fnOS Docker app provisioned** (open it, initialise its
+  storage on a volume). Without it, appcenter-cli fails docker installs with
+  `[Error]Something wrong with appcenter: code 12000` (install-fpk nil-panics).
+  Once provisioned, docker apps install normally — PoC on this VM: 3/4 small apps
+  (it-tools, dpanel, uptime-kuma) pass, homepage fails on a genuine install error.
+  A full 91-app docker matrix still needs more disk than 2×20 GB for the image
+  pulls; `run-all.sh docker` prunes images between apps to stay bounded.
 - Observed during the native run: some apps stayed `running` in `appcenter-cli
   list` after `uninstall` returned success (CLI state can lag — cf. #189). Verify
   `list` / `/var/apps` between runs if a clean slate matters.

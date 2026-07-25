@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run the per-app smoke test across apps.json and write test/report.md.
+# Run the per-app smoke test across apps.json and write test/report-<filter>.md.
 #   ./run-all.sh [native|docker|all]     (default: native)
 #   ./run-all.sh native syncthing gopeed # only these slugs
 here="$(cd "$(dirname "$0")" && pwd)"
@@ -7,7 +7,7 @@ here="$(cd "$(dirname "$0")" && pwd)"
 load_config
 
 filter="${1:-native}"; shift 2>/dev/null || true
-report="$here/report.md"
+report="$here/report-${filter}.md"
 
 slugs=()
 if [ $# -gt 0 ]; then
