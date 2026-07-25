@@ -94,5 +94,16 @@ only on a VM with the Docker app installed and enough disk for image pulls.
 - The graphical Debian install step is manual.
 - `-v`/`--volume` and `install-local --dir` are undocumented-but-working
   appcenter-cli flags (see `docs`), relied on here as the store does.
-- Docker apps need a provisioned Docker runtime and large volumes; test them
-  in a dedicated run, not the default `native` matrix.
+- **Docker apps are not covered on a plain VM.** Empirically, on fnOS 1.2.0203
+  both `install-fpk` and `install-local` fail docker apps with `[Error]Something
+  wrong with appcenter: code 12000` (install-fpk then nil-panics) — even after the
+  compose images are pre-pulled with mirror/`${VERSION}` substitution. Running
+  `dockerd`/`dockermgr` is not enough: the fnOS **Docker system app** must be
+  installed/initialised (from the official fnnas app center) to provide the
+  app-center docker integration appcenter needs. That, plus GB-scale image pulls
+  for 91 apps against 2×20 GB volumes, makes a full docker matrix impractical on
+  this test VM — run docker apps on a dedicated, larger box with the Docker app
+  installed. `run-all.sh docker` exists but expects such a box.
+- Observed during the native run: some apps stayed `running` in `appcenter-cli
+  list` after `uninstall` returned success (CLI state can lag — cf. #189). Verify
+  `list` / `/var/apps` between runs if a clean slate matters.
