@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-25T18:45:07Z",
+  "generated_at": "2026-07-26T08:46:03Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -276,7 +276,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:23:24Z",
-      "download_count": 2,
+      "download_count": 4,
       "app_type": "docker",
       "category": ""
     },
@@ -664,9 +664,9 @@
       "file_prefix": "ente",
       "display_name": "Ente",
       "description": "端到端加密照片备份和存储服务，Google Photos 的隐私替代方案。",
-      "version": "latest-2026.07.25",
-      "fpk_version": "latest-2026.07.25-r1",
-      "release_tag": "ente/vlatest-2026.07.25-r1",
+      "version": "latest-2026.07.26",
+      "fpk_version": "latest-2026.07.26",
+      "release_tag": "ente/vlatest-2026.07.26",
       "service_port": 8510,
       "homepage_url": "https://ente.io",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/ente/fnos/ICON_256.PNG",
@@ -674,7 +674,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:23:12Z",
+      "updated_at": "2026-07-26T08:45:38Z",
       "download_count": 60,
       "app_type": "docker",
       "category": "media",
@@ -728,9 +728,9 @@
       "file_prefix": "filebrowser",
       "display_name": "FileBrowser",
       "description": "轻量级网页文件管理器，支持文件上传、下载和分享",
-      "version": "2.63.19",
-      "fpk_version": "2.63.19-r1",
-      "release_tag": "filebrowser/v2.63.19-r1",
+      "version": "2.63.21",
+      "fpk_version": "2.63.21",
+      "release_tag": "filebrowser/v2.63.21",
       "service_port": 8082,
       "homepage_url": "https://filebrowser.org",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/filebrowser/fnos/ICON_256.PNG",
@@ -738,7 +738,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:23:33Z",
+      "updated_at": "2026-07-26T08:45:37Z",
       "download_count": 162,
       "app_type": "native",
       "category": "download"
@@ -1064,9 +1064,9 @@
       "file_prefix": "immich",
       "display_name": "Immich",
       "description": "自托管照片和视频备份方案,支持人脸识别和智能搜索。",
-      "version": "release-2026.07.25",
-      "fpk_version": "release-2026.07.25-r1",
-      "release_tag": "immich/vrelease-2026.07.25-r1",
+      "version": "release-2026.07.26",
+      "fpk_version": "release-2026.07.26",
+      "release_tag": "immich/vrelease-2026.07.26",
       "service_port": 2283,
       "homepage_url": "https://github.com/immich-app/immich",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/immich/fnos/ICON_256.PNG",
@@ -1074,7 +1074,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:23:18Z",
+      "updated_at": "2026-07-26T08:45:38Z",
       "download_count": 475,
       "app_type": "docker",
       "category": "media"
@@ -1106,9 +1106,9 @@
       "file_prefix": "jackett",
       "display_name": "Jackett",
       "description": "Torrent 索引器代理，为 Sonarr/Radarr 等工具提供统一的搜索接口。",
-      "version": "0.24.2267",
-      "fpk_version": "0.24.2267-r1",
-      "release_tag": "jackett/v0.24.2267-r1",
+      "version": "0.24.2268",
+      "fpk_version": "0.24.2268",
+      "release_tag": "jackett/v0.24.2268",
       "service_port": 9117,
       "homepage_url": "https://github.com/Jackett/Jackett",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/jackett/fnos/ICON_256.PNG",
@@ -1116,7 +1116,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:23:38Z",
+      "updated_at": "2026-07-26T08:45:48Z",
       "download_count": 111,
       "app_type": "native",
       "category": "automation"
@@ -1443,9 +1443,9 @@
       "file_prefix": "mail-archiver",
       "display_name": "Mail Archiver",
       "description": "IMAP/Microsoft 365 邮件归档、搜索与导出系统",
-      "version": "2607.3",
-      "fpk_version": "2607.3-r1",
-      "release_tag": "mail-archiver/v2607.3-r1",
+      "version": "2607.4",
+      "fpk_version": "2607.4",
+      "release_tag": "mail-archiver/v2607.4",
       "service_port": 5008,
       "homepage_url": "https://github.com/s1t5/mail-archiver",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/mail-archiver/fnos/ICON_256.PNG",
@@ -1453,7 +1453,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:24:31Z",
+      "updated_at": "2026-07-26T08:45:37Z",
       "download_count": 15,
       "app_type": "docker",
       "category": "content"
@@ -1824,9 +1824,9 @@
       "file_prefix": "next-ai-draw-io",
       "display_name": "Next AI Draw.io",
       "description": "基于大语言模型的 draw.io 图表生成与编辑工具",
-      "version": "latest-2026.07.25",
-      "fpk_version": "latest-2026.07.25-r1",
-      "release_tag": "next-ai-draw-io/vlatest-2026.07.25-r1",
+      "version": "latest-2026.07.26",
+      "fpk_version": "latest-2026.07.26",
+      "release_tag": "next-ai-draw-io/vlatest-2026.07.26",
       "service_port": 3007,
       "homepage_url": "https://github.com/chadkunsman/next-ai-draw-io",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/next-ai-draw-io/fnos/ICON_256.PNG",
@@ -1834,7 +1834,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:24:39Z",
+      "updated_at": "2026-07-26T08:45:40Z",
       "download_count": 12,
       "app_type": "docker",
       "category": "ai"
@@ -2013,9 +2013,9 @@
       "file_prefix": "ollama",
       "display_name": "Ollama",
       "description": "本地大语言模型运行引擎，支持 Llama、Mistral、Gemma 等开源模型。",
-      "version": "0.32.3",
-      "fpk_version": "0.32.3-r1",
-      "release_tag": "ollama/v0.32.3-r1",
+      "version": "0.32.4",
+      "fpk_version": "0.32.4",
+      "release_tag": "ollama/v0.32.4",
       "service_port": 11434,
       "homepage_url": "https://github.com/ollama/ollama",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/ollama/fnos/ICON_256.PNG",
@@ -2023,7 +2023,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:23:37Z",
+      "updated_at": "2026-07-26T08:45:44Z",
       "download_count": 159,
       "app_type": "docker",
       "category": "ai"
@@ -2097,9 +2097,9 @@
       "file_prefix": "paperless-ngx",
       "display_name": "Paperless-ngx",
       "description": "文档 OCR 扫描与归档管理系统，将纸质文件数字化并智能分类",
-      "version": "3.0.2",
-      "fpk_version": "3.0.2-r1",
-      "release_tag": "paperless-ngx/v3.0.2-r1",
+      "version": "3.0.3",
+      "fpk_version": "3.0.3",
+      "release_tag": "paperless-ngx/v3.0.3",
       "service_port": 8000,
       "homepage_url": "https://docs.paperless-ngx.com",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/paperless-ngx/fnos/ICON_256.PNG",
@@ -2107,7 +2107,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:24:22Z",
+      "updated_at": "2026-07-26T08:45:41Z",
       "download_count": 109,
       "app_type": "docker",
       "category": "content"
@@ -2487,7 +2487,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:24:55Z",
-      "download_count": 6,
+      "download_count": 7,
       "app_type": "docker",
       "category": "content"
     },
@@ -2791,9 +2791,9 @@
       "file_prefix": "transmission",
       "display_name": "Transmission",
       "description": "Transmission 是一个轻量级的 BitTorrent 客户端，以简洁高效著称，支持 Web 远程管理。",
-      "version": "latest-2026.07.25",
-      "fpk_version": "latest-2026.07.25-r1",
-      "release_tag": "transmission/vlatest-2026.07.25-r1",
+      "version": "latest-2026.07.26",
+      "fpk_version": "latest-2026.07.26",
+      "release_tag": "transmission/vlatest-2026.07.26",
       "service_port": 9091,
       "homepage_url": "https://transmissionbt.com",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/transmission/fnos/ICON_256.PNG",
@@ -2801,7 +2801,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:25:09Z",
+      "updated_at": "2026-07-26T08:45:43Z",
       "download_count": 61,
       "app_type": "docker",
       "category": "download"
