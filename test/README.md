@@ -9,10 +9,24 @@ test/
 ├── README.md                # this runbook
 ├── config.env.example       # copy -> config.env (git-ignored)
 ├── lib.sh                   # shared helpers (ssh-as-root, apps.json resolve, test_one)
-├── test-app.sh              # test ONE app end-to-end
+├── rpc.sh                   # daemon-RPC helpers (stage/install/upgrade via the
+│                            #   data-preserving socket channel, never install-local)
+├── wizard-answers.env       # per-app wizard answers for test-wizard/test-upgrade
+├── test-app.sh              # smoke-test ONE app (install/start/volume/uninstall)
+├── test-wizard.sh           # test ONE app's wizard submission end-to-end
+├── test-upgrade.sh          # test ONE app's upgrade data-preservation
 ├── run-all.sh               # matrix over apps.json -> report.md
 └── test-volume-safety.sh    # #189 cross-volume data-loss regression
 ```
+
+## ⚠ Destructive — needs a disposable VM
+Every test **uninstalls the app at the start and at the end**. Run this harness
+only against a throwaway VM you can re-provision or snapshot-revert. Do **not**
+point it at a box with apps you care about — it will remove them. The VM this
+was built on (`fnOS-test`) was later turned into a real box with ~35 installed
+apps (incl. `mihomo`, the only network path) and **no snapshot** — it is no
+longer a safe target. Re-provision a fresh VM, or `prlctl snapshot` *before*
+any run so you can revert.
 
 ## What each app test checks
 
@@ -25,6 +39,34 @@ Each app is installed then uninstalled (disk stays bounded). Stages:
 `start` (`SLOW` when status != running within the timeout) · `port` (`DOWN` when `127.0.0.1:<service_port>`
 refuses TCP — fnOS apps are normally reached through the gateway, not localhost).
 
+## Wizard & upgrade tests (daemon-RPC, data-preserving)
+These go beyond the smoke test. Both drive the app's install/upgrade through the
+**daemon socket** (`/var/run/com.trim.app.center.sock`) — the data-preserving
+channel the store itself uses — never `install-local`/`install-fpk` (which
+uninstalls and destroys data, cf. #189).
+
+```bash
+./test-wizard.sh sakurafrp     # submit the app's wizard answers, assert install+running
+./test-upgrade.sh sakurafrp    # install → write a data marker → re-version &
+                               #   upgrade → assert the marker survived
+./test-upgrade.sh gopeed       # native app, no wizard (answers default to [])
+```
+
+`test-upgrade.sh` needs no published version pair: it re-packages the same fpk
+with a bumped manifest version (`rpc_bump_fpk`) and offers it as an upgrade, so
+every app is testable. The data marker is written into the app's `@appdata` and
+must still be there, unchanged, after the upgrade.
+Wizard answers come from `wizard-answers.env` (`WIZARD_ANSWERS_<slug>` as a JSON
+array of `{"key":..,"value":..}`); apps without an entry submit `[]` (fine for
+apps whose wizard fields are all optional). Values are TEST values, never real
+secrets.
+**fnOS platform facts these tests encode** (measured on 1.2.0203): a wizard field
+`type` must be one of `text/password/checkbox/select/radio/switch/tips` — a
+`number` field makes the daemon reject the whole package with `10111`; every
+`rules` entry needs a `message`; an install runs only `install_init`+
+`install_callback` (never `config_callback`); and the daemon rejects `update/task`
+with `10500` while the freshly-installed service is still starting — so
+`test-upgrade.sh` waits for `status=running` before upgrading.
 ## Prerequisites (host = macOS)
 
 - A hypervisor (Parallels Desktop used here; QEMU/UTM/VirtualBox also fine).
