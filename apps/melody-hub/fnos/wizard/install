@@ -4,7 +4,7 @@
         "items": [
             {
                 "type": "tips",
-                "helpText": "MelodyHub 是 Web 音乐搜索与下载服务，基于 lx-music 核心逻辑开发。<br>首次访问时需进入"系统设置 → 音源管理"上传自定义源文件。<br>下载的音乐文件保存在应用数据目录的 music 子目录中。"
+                "helpText": "MelodyHub 是 Web 音乐搜索与下载服务，基于 lx-music 核心逻辑开发。<br>首次访问时需进入「系统设置 → 音源管理」上传自定义源文件。<br>下载的音乐文件保存在应用数据目录的 music 子目录中。"
             }
         ]
     }
