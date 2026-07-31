@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-30T08:52:48Z",
+  "generated_at": "2026-07-31T08:04:34Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -65,7 +65,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:23:16Z",
-      "download_count": 78,
+      "download_count": 80,
       "app_type": "docker",
       "category": "system"
     },
@@ -381,7 +381,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:23:28Z",
-      "download_count": 17,
+      "download_count": 18,
       "app_type": "docker",
       "category": "system"
     },
@@ -570,7 +570,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:23:32Z",
-      "download_count": 4,
+      "download_count": 5,
       "app_type": "docker",
       "category": "content"
     },
@@ -1634,8 +1634,8 @@
       "display_name": "Miniflux",
       "description": "极简 RSS 阅读器，Go 编写，性能优异",
       "version": "2.3.3",
-      "fpk_version": "2.3.3-r1",
-      "release_tag": "miniflux/v2.3.3-r1",
+      "fpk_version": "2.3.3-r2",
+      "release_tag": "miniflux/v2.3.3-r2",
       "service_port": 8190,
       "homepage_url": "https://miniflux.app",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/miniflux/fnos/ICON_256.PNG",
@@ -1643,7 +1643,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:24:31Z",
+      "updated_at": "2026-07-31T08:03:56Z",
       "download_count": 51,
       "app_type": "docker",
       "category": "content"
@@ -1761,8 +1761,8 @@
       "display_name": "Navidrome",
       "description": "开源的个人音乐流媒体服务器,兼容 Subsonic/Airsonic API,支持多用户和移动端应用。",
       "version": "0.63.2",
-      "fpk_version": "0.63.2-r1",
-      "release_tag": "navidrome/v0.63.2-r1",
+      "fpk_version": "0.63.2-r2",
+      "release_tag": "navidrome/v0.63.2-r2",
       "service_port": 4533,
       "homepage_url": "https://www.navidrome.org",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/navidrome/fnos/ICON_256.PNG",
@@ -1770,7 +1770,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-25T17:24:34Z",
+      "updated_at": "2026-07-31T08:04:08Z",
       "download_count": 170,
       "app_type": "native",
       "category": "media"
@@ -2087,7 +2087,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:24:48Z",
-      "download_count": 283,
+      "download_count": 292,
       "app_type": "native",
       "category": "content"
     },
@@ -2255,7 +2255,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:24:27Z",
-      "download_count": 627,
+      "download_count": 654,
       "app_type": "native",
       "category": "automation"
     },
@@ -2465,7 +2465,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:24:36Z",
-      "download_count": 119,
+      "download_count": 120,
       "app_type": "docker",
       "category": "network",
       "post_install_note": "SakuraFrp 容器使用 host 网络模式运行。首次安装后，请通过远程管理面板创建并启动隧道。"
@@ -2571,7 +2571,7 @@
         "arm"
       ],
       "updated_at": "2026-07-25T17:24:46Z",
-      "download_count": 180,
+      "download_count": 188,
       "app_type": "docker",
       "category": "media"
     },
