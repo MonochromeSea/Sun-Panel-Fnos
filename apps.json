@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-06T08:55:11Z",
+  "generated_at": "2026-08-06T08:59:14Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -1274,9 +1274,9 @@
       "file_prefix": "komari",
       "display_name": "Komari",
       "description": "轻量级自托管服务器监控工具，通过 Web 界面查看服务器状态，配合轻量 agent 采集数据。",
-      "version": "1.3.2",
-      "fpk_version": "1.3.2",
-      "release_tag": "komari/v1.3.2",
+      "version": "1.4.1",
+      "fpk_version": "1.4.1",
+      "release_tag": "komari/v1.4.1",
       "service_port": 25774,
       "homepage_url": "https://github.com/komari-monitor/komari",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/komari/fnos/ICON_256.PNG",
@@ -1284,7 +1284,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-30T08:52:04Z",
+      "updated_at": "2026-08-06T08:58:55Z",
       "download_count": 58,
       "app_type": "docker",
       "category": "system"
