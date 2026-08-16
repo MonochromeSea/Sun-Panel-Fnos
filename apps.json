@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T08:03:57Z",
+  "generated_at": "2026-08-16T08:05:41Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -1634,8 +1634,8 @@
       "display_name": "MelodyHub",
       "description": "Web 音乐搜索与下载服务，基于 lx-music 核心，支持多平台音源聚合搜索、服务器端下载和歌曲管理。",
       "version": "1.0.0",
-      "fpk_version": "1.0.0-r3",
-      "release_tag": "melody-hub/v1.0.0-r3",
+      "fpk_version": "1.0.0-r4",
+      "release_tag": "melody-hub/v1.0.0-r4",
       "service_port": 3006,
       "homepage_url": "https://github.com/gefl24/melody-hub",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/melody-hub/fnos/ICON_256.PNG",
@@ -1643,7 +1643,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-07-27T11:25:48Z",
+      "updated_at": "2026-08-16T08:05:28Z",
       "download_count": 815,
       "app_type": "docker",
       "category": "media"
