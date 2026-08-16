@@ -1,7 +1,7 @@
 # fnOS Apps
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Apps](https://img.shields.io/badge/apps-154-2ea44f)
+![Apps](https://img.shields.io/badge/apps-155-2ea44f)
 ![Platform](https://img.shields.io/badge/fnOS-third--party-orange)
 
 面向飞牛 fnOS 的第三方应用打包仓库。自动跟踪上游版本，构建可直接安装的 `.fpk` 包。
@@ -85,6 +85,7 @@
 | | App | 端口 | 说明 | 来源 | 下载 |
 |:---:|---|---:|---|:---:|:---:|
 | <img src="apps/ani-rss/fnos/ICON.PNG" width="28"> | **ANI-RSS** | `7789` | 动漫 RSS 自动追番，默认账号 `admin/admin` | [GitHub](https://github.com/wushuo894/ani-rss) | [Release][r-ani] |
+| <img src="apps/danmu-api/fnos/ICON.PNG" width="28"> | **Danmu API** | `9321` | 弹幕 API 服务器，兼容弹弹play 接口规范 | [GitHub](https://github.com/huangxd-/danmu_api) | [Release][r-danmu-api] |
 | <img src="apps/auto-bangumi/fnos/ICON.PNG" width="28"> | **AutoBangumi** | `7892` | RSS 自动追番下载整理，默认账号 `admin/adminadmin` | [GitHub](https://github.com/EstrellaXD/Auto_Bangumi) | [Release][r-ab] |
 | <img src="apps/audiobookshelf/fnos/ICON.PNG" width="28"> | **Audiobookshelf** | `13378` | 有声书和播客服务器 | [官网](https://www.audiobookshelf.org) | [Release][r-abs] |
 | <img src="apps/moviepilot/fnos/ICON.PNG" width="28"> | **MoviePilot** | `3000` | 影视自动化管理 | [GitHub](https://github.com/jxxghp/MoviePilot) | [Release][r-mp] |
@@ -375,3 +376,4 @@ fnos-apps/
 [r-arcane]: https://github.com/conversun/fnos-apps/releases?q=arcane
 [r-miair-next]: https://github.com/conversun/fnos-apps/releases?q=miair-next
 [r-surface-battery]: https://github.com/conversun/fnos-apps/releases?q=surface-battery
+[r-danmu-api]: https://github.com/conversun/fnos-apps/releases?q=danmu-api
