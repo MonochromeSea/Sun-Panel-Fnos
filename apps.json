@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T09:29:59Z",
+  "generated_at": "2026-08-16T09:50:06Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -552,6 +552,27 @@
       "download_count": 42,
       "app_type": "docker",
       "category": "system"
+    },
+    {
+      "slug": "danmu-api",
+      "appname": "danmu-api",
+      "file_prefix": "danmu-api",
+      "display_name": "Danmu API",
+      "description": "弹幕 API 服务器：支持爱优腾芒哔咪人韩巴狐乐西埋帆红弹幕直接获取，兼容弹弹play 搜索/详情/弹幕接口规范，提供日志记录与 Web 管理界面",
+      "version": "1.20.7",
+      "fpk_version": "1.20.7",
+      "release_tag": "danmu-api/v1.20.7",
+      "service_port": 9321,
+      "homepage_url": "https://github.com/huangxd-/danmu_api",
+      "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/danmu-api/fnos/ICON_256.PNG",
+      "platforms": [
+        "x86",
+        "arm"
+      ],
+      "updated_at": "2026-08-16T09:49:51Z",
+      "download_count": 0,
+      "app_type": "docker",
+      "category": "content"
     },
     {
       "slug": "ddns-go",
