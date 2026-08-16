@@ -1,7 +1,7 @@
 # fnOS Apps
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Apps](https://img.shields.io/badge/apps-124-2ea44f)
+![Apps](https://img.shields.io/badge/apps-154-2ea44f)
 ![Platform](https://img.shields.io/badge/fnOS-third--party-orange)
 
 面向飞牛 fnOS 的第三方应用打包仓库。自动跟踪上游版本，构建可直接安装的 `.fpk` 包。
@@ -32,6 +32,7 @@
 | <img src="apps/open-webui/fnos/ICON.PNG" width="28"> | **Open WebUI** | `8080` | AI 聊天界面，支持多模型对话 | [GitHub](https://github.com/open-webui/open-webui) | [Release][r-openwebui] |
 | <img src="apps/ollama/fnos/ICON.PNG" width="28"> | **Ollama** | `11434` | 本地大语言模型运行引擎 | [官网](https://ollama.com) | [Release][r-ollama] |
 | <img src="apps/maxkb/fnos/ICON.PNG" width="28"> | **MaxKB** | `8083` | AI 知识库问答系统，支持 RAG 和多模型对接 | [GitHub](https://github.com/1Panel-dev/MaxKB) | [Release][r-maxkb] |
+| <img src="apps/qwenpaw/fnos/ICON.PNG" width="28"> | **QwenPaw** | `8088` | AgentScope 团队出品的自托管个人 AI 助手，多通道接入、定时任务与本地模型 | [GitHub](https://github.com/agentscope-ai/QwenPaw) | [Release][r-qwenpaw] |
 
 ### 🎬 媒体服务
 
@@ -62,6 +63,8 @@
 | <img src="apps/bililive-go/fnos/ICON.PNG" width="28"> | **Bililive-go** | `8680` | 多平台直播录制工具，支持 Bilibili、斗鱼、虎牙等 | [GitHub](https://github.com/hr3lxphr6j/bililive-go) | [Release][r-bililive-go] |
 | <img src="apps/handbrake/fnos/ICON.PNG" width="28"> | **HandBrake** | `5800` | 开源视频转码工具，支持 GPU 硬件加速 | [GitHub](https://github.com/jlesage/docker-handbrake) | [Release][r-handbrake] |
 | <img src="apps/suwayomi/fnos/ICON.PNG" width="28"> | **Suwayomi** | `4567` | 免费开源漫画阅读服务器，支持多来源扩展 | [GitHub](https://github.com/Suwayomi/Suwayomi-Server) | [Release][r-suwayomi] |
+| <img src="apps/lyranest/fnos/ICON.PNG" width="28"> | **LyraNest** | `8080` | 律巢音乐：自托管多端音乐服务，共享曲库/歌单/播放队列，支持歌词偏移与离线下载 | [GitHub](https://github.com/WHWgogogo/LyraNest) | [Release][r-lyranest] |
+| <img src="apps/miair-next/fnos/ICON.PNG" width="28"> | **MiAir Next** | `8300` | 将小米小爱音箱转换为 DLNA 渲染器与 AirPlay 接收器，含 Web 管理后台 | [GitHub](https://github.com/deerwan/miair-next) | [Release][r-miair-next] |
 
 ### ⬇️ 下载工具
 
@@ -153,6 +156,8 @@
 | <img src="apps/penpot/fnos/ICON.PNG" width="28"> | **Penpot** | `9001` | 开源设计和原型工具，Figma 的自托管替代方案 | [官网](https://penpot.app) | [Release][r-penpot] |
 | <img src="apps/surveyking/fnos/ICON.PNG" width="28"> | **SurveyKing** | `1991` | 开源问卷调查和在线考试系统，支持多种题型、逻辑跳转和数据导出 | [官网](https://github.com/anji-plus/survey) | [Release][r-surveyking] |
 | <img src="apps/nvidia-driver/fnos/ICON.PNG" width="28"> | **NVIDIA Driver** | — | NVIDIA GPU 驱动（R580 LTS）+ nvidia-container-toolkit，仅 x86 | [官网](https://www.nvidia.com/drivers) | [Release][r-nvidia-driver] |
+| <img src="apps/arcane/fnos/ICON.PNG" width="28"> | **Arcane** | `3552` | 现代化 Docker 管理界面，可视化管理容器、镜像、Compose 项目与存储卷 | [GitHub](https://github.com/getarcaneapp/arcane) | [Release][r-arcane] |
+| <img src="apps/surface-battery/fnos/ICON.PNG" width="28"> | **Surface 电池驱动** | — | Microsoft Surface 电池驱动（Surface Aggregator），应用内按需编译安装，仅 x86 | [GitHub](https://github.com/xiowo/fnos_surface_battery_driver) | [Release][r-surface-battery] |
 
 ### 🌐 网络工具
 
@@ -365,3 +370,8 @@ fnos-apps/
 [r-nanobot]: https://github.com/conversun/fnos-apps/releases?q=nanobot
 [r-copaw]: https://github.com/conversun/fnos-apps/releases?q=copaw
 [r-cowagent]: https://github.com/conversun/fnos-apps/releases?q=cowagent
+[r-qwenpaw]: https://github.com/conversun/fnos-apps/releases?q=qwenpaw
+[r-lyranest]: https://github.com/conversun/fnos-apps/releases?q=lyranest
+[r-arcane]: https://github.com/conversun/fnos-apps/releases?q=arcane
+[r-miair-next]: https://github.com/conversun/fnos-apps/releases?q=miair-next
+[r-surface-battery]: https://github.com/conversun/fnos-apps/releases?q=surface-battery
