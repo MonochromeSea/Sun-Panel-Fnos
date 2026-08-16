@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T09:50:06Z",
+  "generated_at": "2026-08-16T14:53:17Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -150,7 +150,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:01:15Z",
-      "download_count": 2,
+      "download_count": 3,
       "app_type": "docker",
       "category": "system"
     },
@@ -570,7 +570,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T09:49:51Z",
-      "download_count": 0,
+      "download_count": 11,
       "app_type": "docker",
       "category": "content"
     },
@@ -1538,7 +1538,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:02:19Z",
-      "download_count": 2,
+      "download_count": 3,
       "app_type": "docker",
       "category": "media"
     },
@@ -1728,7 +1728,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:02:07Z",
-      "download_count": 2,
+      "download_count": 4,
       "app_type": "docker",
       "category": "media"
     },
@@ -1812,7 +1812,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:03:00Z",
-      "download_count": 177,
+      "download_count": 184,
       "app_type": "docker",
       "category": "content",
       "post_install_note": "请在 Web UI 中设置媒体库和下载目录，确保与下载工具（如 qBittorrent）使用的路径一致。"
@@ -2465,7 +2465,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:02:46Z",
-      "download_count": 2,
+      "download_count": 3,
       "app_type": "docker",
       "category": "system"
     },
@@ -3233,8 +3233,8 @@
       "display_name": "ZoneFoundry Bridge",
       "description": "ZoneFoundry 自建桥接，连接家中 Sonos 与 ZoneFoundry 云端中继，远程通过语音 / IM / 网页操控 Sonos 音箱。",
       "version": "0.3.51",
-      "fpk_version": "0.3.51-r1",
-      "release_tag": "zonefoundry-bridge/v0.3.51-r1",
+      "fpk_version": "0.3.51-r2",
+      "release_tag": "zonefoundry-bridge/v0.3.51-r2",
       "service_port": 18790,
       "homepage_url": "https://zonefoundry.dev",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/zonefoundry-bridge/fnos/ICON_256.PNG",
@@ -3242,11 +3242,11 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-16T08:03:20Z",
+      "updated_at": "2026-08-16T14:53:00Z",
       "download_count": 33,
       "app_type": "docker",
       "category": "automation",
-      "post_install_note": "ZoneFoundry Bridge 客户端容器使用 host 网络模式运行，安装后请填写 ZF_TOKEN。"
+      "post_install_note": "ZoneFoundry Bridge 客户端容器使用 host 网络模式运行。首次启动后到容器日志里找一行『Setup code: ZF-XXXX』，在 ZoneFoundry iOS app → 更多 → 桥接 → + → 输入设置码 中填入即可（~5 秒内自动配对完成）。"
     }
   ]
 }
