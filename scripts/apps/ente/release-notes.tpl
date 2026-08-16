@@ -1,6 +1,6 @@
 自动构建的 fnOS 安装包
 
-- 基于 [Ente ${VERSION}](https://github.com/ente-io/ente/releases/tag/v${VERSION})
+- 基于 ghcr.io/ente-io/server:latest（滚动跟踪，版本 ${VERSION}）
 - 基于 Docker 容器运行，需要 fnOS Docker 环境
 - 平台: fnOS
 - 默认端口: 8510

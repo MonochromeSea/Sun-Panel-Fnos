@@ -1,0 +1,13 @@
+services:
+  sakurafrp:
+    image: ${DOCKER_MIRROR}docker.io/natfrp/launcher:${VERSION}
+    container_name: sakurafrp
+    network_mode: host
+    volumes:
+      - ${TRIM_PKGVAR:?}/data:/run
+    environment:
+      - TZ=Asia/Shanghai
+      - LANG=zh_CN.UTF-8
+      - NATFRP_TOKEN=${wizard_natfrp_token}
+      - NATFRP_REMOTE=${wizard_natfrp_remote}
+    restart: unless-stopped

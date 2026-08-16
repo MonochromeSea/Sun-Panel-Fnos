@@ -24,13 +24,6 @@ service_postinst() {
 service_postupgrade() { service_postinst; }
 
 service_preuninst() {
-    # Kill mihomo subprocess via its private PID file first
-    if [ -f "${TRIM_PKGVAR}/mihomo-kernel.pid" ]; then
-        kill "$(cat "${TRIM_PKGVAR}/mihomo-kernel.pid")" 2>/dev/null
-        sleep 1
-        kill -9 "$(cat "${TRIM_PKGVAR}/mihomo-kernel.pid")" 2>/dev/null
-        rm -f "${TRIM_PKGVAR}/mihomo-kernel.pid"
-    fi
     # Sweep both binaries by name (-x for exact match, avoids killing appcenter-cli args)
     pkill -x "fnos-mihomo-dashboard" 2>/dev/null || true
     pkill -x "mihomo" 2>/dev/null || true

@@ -8,11 +8,15 @@
             },
             {
                 "type": "tips",
-                "helpText": "<b>⚠／镜像拉取注意事项（在中国大陆重要）：</b><br>Ente 后端镜像 <code>ghcr.io/ente-io/server</code> 托管在 GitHub Container Registry，<b>DaoCloud 公益镜像源未收录（在黑名单）</b>，直接安装会失败。<br><br>请在“飞牛 NAS 设置 → Docker → 镜像加速器”中使用以下加速源（任选一个可能都有很多人用，请進一步 fallback）：<br>  • <code>https://docker.1ms.run</code><br>  • <code>https://docker.1panel.live</code><br>  • <code>https://hub.rat.dev</code><br><br>参考 issue <a href=\"https://github.com/conversun/fnos-apps/issues/139\">#139</a> / <a href=\"https://github.com/DaoCloud/public-image-mirror/issues/2328\">DaoCloud allowlist</a>。"
+                "helpText": "<b>⚠／镜像拉取说明（中国大陆用户注意）：</b><br>Ente 需要拉取 3 个容器镜像：<br>  • <code>postgres:15-alpine</code>（Docker Hub）— <b>镜像加速器可加速</b><br>  • <code>minio/minio:latest</code>（Docker Hub）— <b>镜像加速器可加速</b><br>  • <code>ghcr.io/ente-io/server:latest</code>（GitHub Container Registry）— <b>镜像加速器 ⛔ 不生效</b><br><br>Docker 的“镜像加速器”机制仅对 Docker Hub（docker.io）生效。<br>ghcr.io 镜像需直连 GitHub，请确保你的网络可正常访问 ghcr.io。<br><br>如拉取失败，请尝试：<br>  1. 在“飞牛 NAS 设置 → Docker → 镜像加速器”配置加速源（至少能加速 postgres 和 minio）<br>  2. 使用网络代理或 VPN 确保能访问 ghcr.io<br>  3. 或在终端执行 <code>docker pull ghcr.io/ente-io/server:latest</code> 测试连通性"
             },
             {
                 "type": "tips",
                 "helpText": "默认数据库与对象存储账号为示例值，仅用于快速启动。<br>生产环境建议修改 docker-compose 中的默认密码并启用 HTTPS。"
+            },
+            {
+                "type": "tips",
+                "helpText": "<b>📸 关于照片上传（重要）：</b><br>Ente 使用内置 MinIO 对象存储保存照片，客户端上传时会被<b>直接重定向到 MinIO 地址</b>（NAS 局域网 IP + 端口 <code>3200</code>，HTTP）。<br>因此「NAS 局域网 IP」<b>必须填写</b>本 NAS 的局域网 IP（如 <code>192.168.1.100</code>），否则手机/浏览器<b>无法上传照片</b>。<br>⚠️ 当前仅支持<b>局域网 HTTP 直传</b>；若通过 HTTPS 反向代理/域名访问 Ente，照片直传需额外配置 S3 公网 endpoint（参考 issue <a href=\"https://github.com/conversun/fnos-apps/issues/164\">#164</a>）。<br>若上传失败，通常是该 IP 不可达或端口 3200 被占用。"
             }
         ]
     }

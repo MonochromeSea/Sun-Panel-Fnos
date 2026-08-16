@@ -1,9 +1,11 @@
 services:
   zonefoundry-bridge:
-    # Pin :latest (not ${VERSION}) so iOS 1-tap update works: bridge can pull
+    # Pin :latest (not :v${VERSION}) so iOS 1-tap update works: bridge can pull
     # a new image at runtime + recreate self via docker socket. Pinning a
     # specific version locks the user out of 1-tap updates because container
     # restart reuses the cached image hash bound at create time.
+    # (get-latest-version.sh still resolves the v-prefixed upstream tag for the
+    # fpk release version — see eddd19f.)
     image: ${DOCKER_MIRROR}docker.io/zonefoundry/bridge:latest
     container_name: zonefoundry-bridge
     network_mode: host

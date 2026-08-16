@@ -1,0 +1,31 @@
+[
+    {
+        "stepTitle": "SakuraFrp 配置",
+        "items": [
+            {
+                "type": "tips",
+                "helpText": "SakuraFrp 是免费内网穿透服务。<br>请先在 <a href='https://www.natfrp.com/user/' target='_blank'>SakuraFrp 管理面板</a> 获取访问密钥。"
+            },
+            {
+                "type": "password",
+                "field": "wizard_natfrp_token",
+                "label": "访问密钥 (Access Token)",
+                "placeholder": "从 SakuraFrp 管理面板获取",
+                "rules": [
+                    { "required": true, "message": "请填写访问密钥" }
+                ]
+            },
+            {
+                "type": "password",
+                "field": "wizard_natfrp_remote",
+                "label": "远程管理密码",
+                "placeholder": "至少 8 位字符",
+                "initValue": "",
+                "rules": [
+                    { "required": true, "message": "请设置远程管理密码" },
+                    { "min": 8, "message": "密码至少 8 位" }
+                ]
+            }
+        ]
+    }
+]

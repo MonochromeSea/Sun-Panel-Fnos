@@ -1,0 +1,15 @@
+{
+    ".url": {
+        "sakurafrp.Application":
+        {
+            "title": "SakuraFrp",
+            "desc": "SakuraFrp",
+            "icon": "images/{0}.png",
+            "type": "url",
+            "port": "7102",
+            "protocol": "http",
+            "url": "/",
+            "allUsers": true
+        }
+    }
+}

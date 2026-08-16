@@ -1,3 +1,59 @@
+## 2026-07-27
+
+- v0.4.0: 安全加固 + 订阅保存事务化 (**含行为变更, 请留意**)
+  - 【安全·重要】面板管理接口现在需要鉴权。此前 `/mihomo/*` 反代把 mihomo 控制 API
+    无过滤暴露在 `*:9097`, 而生成的配置 `secret` 为空 —— 局域网内任意主机可直接改
+    代理模式、投递整份配置 (绕过 SAFE_PATHS)、切换节点、掐断连接、重启内核。
+    实测: 从另一台机器 `PATCH /mihomo/configs {"mode":"direct"}` 返回 204, 全家的
+    代理规则被旁路。
+    - 首次启动在配置目录生成 `.fnos-admin-token` (0600)
+    - **本机 (loopback) 免鉴权**, 因此 NAS 上打开面板、本地 curl、定时刷新均不受影响
+    - 从其他设备访问需带 token: `Authorization: Bearer <token>`、`X-Token`、
+      `?token=` 或 cookie 均可
+  - 【修复】订阅自动刷新静默失败: 此前每 12 小时的自动刷新会丢弃 mihomo reload 错误,
+    无备份无回滚, 且总是返回成功。实测同一故障下手动保存正确回滚, 自动刷新却写入了
+    mihomo 从未加载的配置并报成功 —— 用户网络可能在无人察觉时中断
+  - 【修复】订阅保存失败后状态撕裂: reload 失败已回滚 config.yaml, 但订阅 URL 侧车
+    文件未回滚, 面板显示"已配置订阅"而实际一个节点都没有。两条路径现在走同一事务
+    (快照 → 落盘 → reload → 成功后才提交 URL)
+  - 【修复】mihomo 健康状态误报: 此前只检查进程存活。当 mihomo 抢占控制端口失败时,
+    进程仍在但面板会读到"另一个" mihomo 的 API 并报告健康。现在通过 /proc socket
+    归属校验, 区分 healthy / foreign_api / api_unreachable / stopped
+  - 【安全】凭据不再外泄: `/api/config` 曾原样返回 config.yaml (含机场节点密码、UUID、
+    controller secret), 订阅接口曾回传含 token 的原始 URL。现均脱敏, 保留结构便于排查
+  - 【安全】订阅 URL 抓取加固: 此前可用于探测内网端口 (开放/关闭/服务类型返回不同报错)。
+    现仅允许 http(s), 拒绝内网与回环地址 (dial 时校验, 防 DNS rebinding), 重定向逐跳
+    校验, 报错统一
+  - 【安全】请求体限制 1 MiB; HTTP 读写超时; config.yaml 等含凭据文件权限 0644 → 0600
+    (启动时自动收紧旧安装留下的文件)
+  - 新增 22 项测试 (此前无测试), `go test -race` 全绿
+- bump fnos-mihomo-dashboard 至 v0.4.0
+
+## 2026-07-07
+
+- 【修复】x86 非 v3 微架构 CPU 无法运行 mihomo (issue #174)
+  - 根因: 原打包下载 `mihomo-linux-amd64-v${VERSION}` (GOAMD64=v3) 二进制, 在不支持 v3 微架构的老 NAS/J 系列芯片上直接崩溃
+  - x86/amd64 改用 `mihomo-linux-amd64-compatible-v${VERSION}` (GOAMD64=v1) 二进制, 兼容所有 x86-64 CPU
+  - arm64 不受影响 (无微架构分级)
+
+## 2026-05-21
+
+- v0.3.6: 启停开关从顶部 pill 提升为 hero 控制卡 (用户反馈"太隐蔽")
+  - 独立成区位于 header 正下方, 是页面最显眼位置
+  - 大盾牌 icon + 状态徽章 + 服务名/版本/PID/端口
+  - shadcn 风格 Switch 组件 (h-8 w-14, 圆形 thumb 平移)
+  - 卡片边框与背景在运行/停止时变色, 状态一目了然
+- bump fnos-mihomo-dashboard 至 v0.3.6
+
+## 2026-05-21
+
+- v0.3.5: 三项 UI 反馈修复
+  - 轮询拆分: status/logs 5s, config/subInfo 60s, subscription URL/overrides 启动时一次, 后台流量大幅下降
+  - dashboard 头部新增 mihomo 启停开关 (绿色"运行中" / 灰色"已停止"), 不再需要去 fnOS 应用中心停用
+  - 高级管理 (MetaCubeXD) 改为新窗口打开 (target=_blank), 不再替换主 dashboard
+- 架构: bin/mihomo-server 简化为仅 exec dashboard, mihomo 由 dashboard supervisor 接管 (start/stop/restart API)
+- bump fnos-mihomo-dashboard 至 v0.3.5
+
 ## 2026-05-21
 
 - 修复 TUN `configure tun interface: operation not permitted` 错误

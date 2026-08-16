@@ -1,0 +1,25 @@
+{
+    "port-config": {
+        "protocol-file": "SakuraFrp.sc"
+    },
+    "data-share": {
+        "shares": [
+            {
+                "name": "SakuraFrp",
+                "permission": {
+                    "rw": [
+                        "sakurafrp"
+                    ]
+                }
+            }
+        ]
+    },
+    "docker-project": {
+        "projects": [
+            {
+                "name": "sakurafrp",
+                "path": "docker"
+            }
+        ]
+    }
+}
