@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T07:09:16Z",
+  "generated_at": "2026-08-17T07:35:59Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -13,8 +13,8 @@
       "display_name": "1Panel",
       "description": "开源服务器运维管理面板，提供可视化的 Linux 服务器管理。",
       "version": "1.10.34-lts",
-      "fpk_version": "1.10.34-lts-r6",
-      "release_tag": "1panel/v1.10.34-lts-r6",
+      "fpk_version": "1.10.34-lts-r7",
+      "release_tag": "1panel/v1.10.34-lts-r7",
       "service_port": 10086,
       "homepage_url": "https://1panel.cn",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/1panel/fnos/ICON_256.PNG",
@@ -22,7 +22,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T06:23:04Z",
+      "updated_at": "2026-08-17T07:35:40Z",
       "download_count": 229,
       "app_type": "native",
       "category": "system"
@@ -434,8 +434,8 @@
       "display_name": "Cloudreve",
       "description": "国产云盘系统，支持多种存储策略和离线下载。",
       "version": "3.8.3",
-      "fpk_version": "3.8.3-r3",
-      "release_tag": "cloudreve/v3.8.3-r3",
+      "fpk_version": "3.8.3-r4",
+      "release_tag": "cloudreve/v3.8.3-r4",
       "service_port": 5212,
       "homepage_url": "https://cloudreve.org",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/cloudreve/fnos/ICON_256.PNG",
@@ -443,7 +443,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T06:23:14Z",
+      "updated_at": "2026-08-17T07:35:37Z",
       "download_count": 155,
       "app_type": "native",
       "category": "download"
@@ -981,8 +981,8 @@
       "display_name": "Gotify",
       "description": "Gotify 是一个简单的自托管推送通知服务器，支持通过 REST API 发送和接收消息。",
       "version": "3.0.0",
-      "fpk_version": "3.0.0-r3",
-      "release_tag": "gotify/v3.0.0-r3",
+      "fpk_version": "3.0.0-r4",
+      "release_tag": "gotify/v3.0.0-r4",
       "service_port": 8070,
       "homepage_url": "https://gotify.net",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/gotify/fnos/ICON_256.PNG",
@@ -990,7 +990,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T06:22:47Z",
+      "updated_at": "2026-08-17T07:35:33Z",
       "download_count": 43,
       "app_type": "native",
       "category": "system"
