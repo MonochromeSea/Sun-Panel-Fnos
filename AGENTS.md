@@ -124,6 +124,7 @@ There IS test infrastructure — three local layers plus a real-VM harness.
 | **L2 contract** | `bash scripts/test/verify-fpk.sh dist/<f>.fpk` | fpk structure, md5 vs manifest, ELF arch (x86↔x86-64 / arm↔aarch64), **built compose inside app.tgz is a valid `services:` mapping**, docker image reachable |
 | **L3 install cycle** | `bash scripts/test/run-fpk-tests.sh dist/<f>.fpk` | install → start → probe → stop → uninstall → assert-clean, inside a container |
 | **shared framework** | `bash scripts/test/test-start-readiness.sh` | `start_daemon` readiness gate |
+| **shared framework** | `bash scripts/test/test-path-export.sh` | `PATH` is exported to spawned daemons |
 | **real VM** | `test/run-all.sh`, `test/test-upgrade.sh`, ... | drives an actual fnOS box over SSH |
 
 **L3 cannot boot Docker apps** — the runner container has no Docker daemon. Docker apps therefore set
@@ -163,3 +164,10 @@ bash scripts/test/run-fpk-tests.sh dist/<slug>_<ver>_x86.fpk
 - `shared/cmd/common` includes a bounded start-readiness wait: after the PID is written it polls up to
   `SVC_WAIT_TIMEOUT` (default 15s) so fnOS cannot observe a not-yet-listening daemon; a process that
   dies immediately now fails the start, while a slow-but-alive one still succeeds.
+- `shared/cmd/common` exports a standard `PATH`. fnOS hands lifecycle scripts a TRIM_*-only environment
+  with **no `PATH` at all**; bash substitutes a compiled-in default for its own lookups but never exports
+  it, so every spawned daemon used to inherit an unset `PATH` and anything that shelled out failed with
+  `executable file not found in $PATH` (filebrowser died on `getent`, issue #268). Do not remove the
+  export, and do not derive it from the inherited value — bash's default ends in `.`, which would put the
+  app's user-writable data dir on the daemon's search path. Apps needing extra dirs prepend them in
+  their own `cmd/service-setup` or wrapper (see emby).

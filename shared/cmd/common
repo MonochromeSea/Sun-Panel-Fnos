@@ -1,4 +1,17 @@
 #!/bin/bash
+
+# fnOS runs app lifecycle scripts with a curated TRIM_* environment that holds
+# no PATH at all (verified on fnOS 1.2.0203). bash falls back to a compiled-in
+# default for its OWN lookups but never exports it, so every process started
+# from here — the app daemon included — inherits an environment where PATH is
+# unset. Shell commands keep resolving, which is why this stayed invisible, but
+# an app that shells out dies on it: filebrowser's user lookup exits with
+# `exec: "getent": executable file not found in $PATH` (issue #268).
+# Export the same PATH fnOS's own daemons run with. Deliberately NOT derived
+# from the inherited value — bash's default ends in `.`, and exporting that
+# would put the app's user-writable data dir (SVC_CWD) on the daemon's search
+# path. Apps needing extra directories prepend them in their own service-setup.
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 MV="/bin/mv -f"
 RM="/bin/rm -rf"
 CP="/bin/cp -rfp"
