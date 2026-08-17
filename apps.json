@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T07:35:59Z",
+  "generated_at": "2026-08-17T08:06:51Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -13,8 +13,8 @@
       "display_name": "1Panel",
       "description": "开源服务器运维管理面板，提供可视化的 Linux 服务器管理。",
       "version": "1.10.34-lts",
-      "fpk_version": "1.10.34-lts-r7",
-      "release_tag": "1panel/v1.10.34-lts-r7",
+      "fpk_version": "1.10.34-lts-r8",
+      "release_tag": "1panel/v1.10.34-lts-r8",
       "service_port": 10086,
       "homepage_url": "https://1panel.cn",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/1panel/fnos/ICON_256.PNG",
@@ -22,7 +22,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T07:35:40Z",
+      "updated_at": "2026-08-17T08:06:32Z",
       "download_count": 229,
       "app_type": "native",
       "category": "system"
