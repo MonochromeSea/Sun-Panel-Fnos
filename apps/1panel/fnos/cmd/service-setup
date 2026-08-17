@@ -10,12 +10,26 @@ SERVICE_COMMAND="$APP_DIR/bin/1panel-server $APP_DATA_DIR"
 SVC_BACKGROUND=y
 SVC_WRITE_PID=y
 
-# Runs as ROOT (via install_init). 1panel's binary reads its port, base
-# directory and other startup params by grepping /usr/local/bin/1pctl
-# (see core/utils/common/common.go LoadParams). The full upstream 1pctl
-# template ships with 8 required keys; without them the binary panics on
-# boot. Seed it here; 1panel then migrates the values into its SQLite DB.
-service_preinst() {
+# 1panel's binary reads its port, base directory and other startup params by
+# grepping /usr/local/bin/1pctl (see core/utils/common/common.go LoadParams).
+# Without those keys it panics on boot with:
+#   panic: error `BASE_DIR` find in /usr/local/bin/1pctl
+#
+# KNOWN BROKEN — this app cannot currently start, and seeding 1pctl from here
+# does NOT fix it. fnOS runs the install/upgrade hooks as the unprivileged app
+# user (verified on fnOS 1.2.0203: CREDENTIALS.txt below is created owned by
+# 1panel:1panel, and the write two lines down fails with
+# "/usr/local/bin/1pctl: Permission denied"), and /usr/local/bin is root:root
+# 755. `cmd/main start` is likewise unprivileged. So nothing in this package can
+# create the one file the binary insists on reading.
+#
+# Fixing it properly requires granting the app root, i.e. `install_type = root`
+# in the manifest plus `"run-as": "root"` in config/privilege (see
+# nvidia-driver / surface-battery). That also relocates the app off the storage
+# volume to /usr/local/apps, so it is a packaging decision, not a code fix.
+# The seeding below is kept because it is correct once the hook has privileges;
+# it now reports the failure instead of leaving a silently broken install.
+seed_1pctl() {
     # Idempotent: only generate random secrets on first install.
     local creds="${TRIM_PKGVAR}/CREDENTIALS.txt"
     local username password entrance
@@ -38,7 +52,12 @@ url=http://<NAS-IP>:${TRIM_SERVICE_PORT:-10086}/$entrance
 CREDS
     fi
 
-    mkdir -p /usr/local/bin
+    if ! mkdir -p /usr/local/bin 2>/dev/null || ! : > /usr/local/bin/1pctl 2>/dev/null; then
+        echo "ERROR: cannot write /usr/local/bin/1pctl (running as $(id -un), needs root)." >&2
+        echo "       1panel will panic on start with: error \`BASE_DIR\` find in /usr/local/bin/1pctl" >&2
+        echo "       This app needs install_type=root + run-as root to work." >&2
+        return 1
+    fi
     cat > /usr/local/bin/1pctl <<EOF
 #!/bin/bash
 # Stub config-source for 1panel. The real 1pctl is the upstream management CLI;
@@ -55,12 +74,19 @@ LANGUAGE=zh
 PANEL_EDITION=cn
 CHANGE_USER_INFO=false
 EOF
-    chmod 755 /usr/local/bin/1pctl
+    chmod 755 /usr/local/bin/1pctl 2>/dev/null || true
 }
 
+service_preinst() {
+    seed_1pctl
+}
+
+# NOTE: no service_postupgrade hook — the upgrade hooks are unprivileged too,
+# so re-seeding there only produces "Permission denied" noise in the app log.
+
 service_preuninst() {
-    # Runs as ROOT (via uninstall_init). Clean up the 1pctl stub we created.
-    rm -f /usr/local/bin/1pctl
+    # Best-effort cleanup of the 1pctl stub (unprivileged, so usually a no-op).
+    rm -f /usr/local/bin/1pctl 2>/dev/null || true
 
     # 使用 -x 精确匹配进程名，避免误杀 appcenter-cli 等包含 "1panel" 参数的进程
     pkill -x "1panel" 2>/dev/null || true
