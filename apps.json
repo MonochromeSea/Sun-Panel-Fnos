@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-16T14:53:17Z",
+  "generated_at": "2026-08-17T03:10:51Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -329,8 +329,8 @@
       "display_name": "ChineseSubFinder",
       "description": "中文字幕自动下载工具，支持 Emby/Jellyfin/Plex",
       "version": "0.55.2",
-      "fpk_version": "0.55.2-r4",
-      "release_tag": "chinesesubfinder/v0.55.2-r4",
+      "fpk_version": "0.55.2-r5",
+      "release_tag": "chinesesubfinder/v0.55.2-r5",
       "service_port": 19035,
       "homepage_url": "https://github.com/ChineseSubFinder/ChineseSubFinder",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/chinesesubfinder/fnos/ICON_256.PNG",
@@ -338,7 +338,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-16T08:02:01Z",
+      "updated_at": "2026-08-17T03:10:19Z",
       "download_count": 180,
       "app_type": "native",
       "category": "automation"
@@ -570,7 +570,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T09:49:51Z",
-      "download_count": 11,
+      "download_count": 14,
       "app_type": "docker",
       "category": "content"
     },
@@ -665,8 +665,8 @@
       "display_name": "EasyTier",
       "description": "简单安全的去中心化异地组网方案，支持 Web 管理和子网代理",
       "version": "2.6.4",
-      "fpk_version": "2.6.4-r3",
-      "release_tag": "easytier/v2.6.4-r3",
+      "fpk_version": "2.6.4-r4",
+      "release_tag": "easytier/v2.6.4-r4",
       "service_port": 11210,
       "homepage_url": "https://github.com/EasyTier/EasyTier",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/easytier/fnos/ICON_256.PNG",
@@ -674,7 +674,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-16T08:01:27Z",
+      "updated_at": "2026-08-17T03:10:12Z",
       "download_count": 138,
       "app_type": "native",
       "category": "network"
@@ -1538,7 +1538,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:02:19Z",
-      "download_count": 3,
+      "download_count": 4,
       "app_type": "docker",
       "category": "media"
     },
@@ -1728,7 +1728,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:02:07Z",
-      "download_count": 4,
+      "download_count": 6,
       "app_type": "docker",
       "category": "media"
     },
@@ -1738,9 +1738,9 @@
       "file_prefix": "mihomo",
       "display_name": "Mihomo",
       "description": "Clash.Meta 多协议代理 + MetaCubeXD 面板 (管理:9097 代理:7890)",
-      "version": "1.19.29",
-      "fpk_version": "1.19.29-r4",
-      "release_tag": "mihomo/v1.19.29-r4",
+      "version": "1.19.30",
+      "fpk_version": "1.19.30",
+      "release_tag": "mihomo/v1.19.30",
       "service_port": 9097,
       "homepage_url": "https://github.com/MetaCubeX/mihomo",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/mihomo/fnos/ICON_256.PNG",
@@ -1748,7 +1748,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-16T08:02:14Z",
+      "updated_at": "2026-08-17T03:10:13Z",
       "download_count": 1223,
       "app_type": "native",
       "category": "network"
@@ -1812,7 +1812,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:03:00Z",
-      "download_count": 184,
+      "download_count": 207,
       "app_type": "docker",
       "category": "content",
       "post_install_note": "请在 Web UI 中设置媒体库和下载目录，确保与下载工具（如 qBittorrent）使用的路径一致。"
@@ -2465,7 +2465,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:02:46Z",
-      "download_count": 3,
+      "download_count": 4,
       "app_type": "docker",
       "category": "system"
     },
@@ -2844,7 +2844,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:03:02Z",
-      "download_count": 1,
+      "download_count": 2,
       "app_type": "native",
       "category": "system"
     },
@@ -3159,7 +3159,7 @@
         "arm"
       ],
       "updated_at": "2026-08-16T08:03:09Z",
-      "download_count": 15,
+      "download_count": 16,
       "app_type": "docker",
       "category": "media"
     },
