@@ -6,6 +6,16 @@ DATA_DIR="$APP_DATA_DIR/data"
 CONFIG_DIR="$APP_DATA_DIR/.picoclaw"
 mkdir -p "$DATA_DIR" "$CONFIG_DIR"
 
+# Seed the default config on first start. picoclaw's gateway aborts when no
+# usable model is configured ("error creating provider: model \"\" not found in
+# model_list"), and nothing else ever created this file, so a fresh install
+# could never start. Written only when absent, so user edits survive upgrades.
+CONFIG_FILE="$CONFIG_DIR/config.json"
+if [ ! -f "$CONFIG_FILE" ]; then
+    sed "s|__TRIM_SERVICE_PORT__|${TRIM_SERVICE_PORT:-18790}|g" \
+        "$APP_DIR/config/picoclaw-config.json" > "$CONFIG_FILE"
+fi
+
 export HOME="$APP_DATA_DIR"
 export PICOCLAW_GATEWAY_PORT="${TRIM_SERVICE_PORT}"
 export PICOCLAW_GATEWAY_HOST="0.0.0.0"

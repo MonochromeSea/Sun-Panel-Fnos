@@ -13,7 +13,7 @@
   ],
   "gateway": {
     "host": "0.0.0.0",
-    "port": 18790,
+    "port": __TRIM_SERVICE_PORT__,
     "log_level": "warn"
   }
 }
