@@ -15,20 +15,21 @@ SVC_WRITE_PID=y
 # Without those keys it panics on boot with:
 #   panic: error `BASE_DIR` find in /usr/local/bin/1pctl
 #
-# KNOWN BROKEN — this app cannot currently start, and seeding 1pctl from here
-# does NOT fix it. fnOS runs the install/upgrade hooks as the unprivileged app
-# user (verified on fnOS 1.2.0203: CREDENTIALS.txt below is created owned by
-# 1panel:1panel, and the write two lines down fails with
-# "/usr/local/bin/1pctl: Permission denied"), and /usr/local/bin is root:root
-# 755. `cmd/main start` is likewise unprivileged. So nothing in this package can
-# create the one file the binary insists on reading.
+# That file lives outside the app's own directories and needs root to write.
+# fnOS runs every hook as the app's configured run-as user, so while this app
+# ran as the unprivileged "1panel" user the seeding below could never succeed:
+# CREDENTIALS.txt came out owned by 1panel:1panel and the next write failed with
+# "/usr/local/bin/1pctl: Permission denied" (/usr/local/bin is root:root 755),
+# leaving the app permanently panicking on start.
 #
-# Fixing it properly requires granting the app root, i.e. `install_type = root`
-# in the manifest plus `"run-as": "root"` in config/privilege (see
-# nvidia-driver / surface-battery). That also relocates the app off the storage
-# volume to /usr/local/apps, so it is a packaging decision, not a code fix.
-# The seeding below is kept because it is correct once the hook has privileges;
-# it now reports the failure instead of leaving a silently broken install.
+# The app is therefore packaged as a root install (`install_type = root` in the
+# manifest plus `"run-as": "root"` in config/privilege, same as nvidia-driver /
+# surface-battery). Upstream 1panel expects root anyway: it manages Docker,
+# system services and the firewall. Note this also places the app under
+# /usr/local/apps rather than on a storage volume.
+#
+# seed_1pctl is idempotent and runs on upgrade as well as install, so an install
+# that predates this packaging is repaired by updating the app.
 seed_1pctl() {
     # Idempotent: only generate random secrets on first install.
     local creds="${TRIM_PKGVAR}/CREDENTIALS.txt"
@@ -55,7 +56,7 @@ CREDS
     if ! mkdir -p /usr/local/bin 2>/dev/null || ! : > /usr/local/bin/1pctl 2>/dev/null; then
         echo "ERROR: cannot write /usr/local/bin/1pctl (running as $(id -un), needs root)." >&2
         echo "       1panel will panic on start with: error \`BASE_DIR\` find in /usr/local/bin/1pctl" >&2
-        echo "       This app needs install_type=root + run-as root to work." >&2
+        echo "       Check install_type=root in the manifest and run-as root in config/privilege." >&2
         return 1
     fi
     cat > /usr/local/bin/1pctl <<EOF
@@ -81,12 +82,15 @@ service_preinst() {
     seed_1pctl
 }
 
-# NOTE: no service_postupgrade hook — the upgrade hooks are unprivileged too,
-# so re-seeding there only produces "Permission denied" noise in the app log.
+# Repairs installs that predate the root packaging, and refreshes the port and
+# version keys after every update.
+service_postupgrade() {
+    seed_1pctl
+}
 
 service_preuninst() {
-    # Best-effort cleanup of the 1pctl stub (unprivileged, so usually a no-op).
-    rm -f /usr/local/bin/1pctl 2>/dev/null || true
+    # Clean up the 1pctl stub we created (runs as root).
+    rm -f /usr/local/bin/1pctl
 
     # 使用 -x 精确匹配进程名，避免误杀 appcenter-cli 等包含 "1panel" 参数的进程
     pkill -x "1panel" 2>/dev/null || true

@@ -73,8 +73,13 @@ fnos-apps/
   **English** for code comments.
 - **TRIM_\* env vars** are injected by fnOS at runtime: `TRIM_APPNAME`, `TRIM_APPDEST`, `TRIM_PKGVAR`,
   `TRIM_PKGETC`, `TRIM_PKGHOME`, `TRIM_SERVICE_PORT`, `TRIM_APP_STATUS`, `TRIM_DATA_SHARE_PATHS`.
-- **install_type = root** apps (nvidia-driver, surface-battery) are installed to `/usr/local/apps`,
-  NOT to a `/volN` storage volume. Only their `meta` symlink resolves onto a volume.
+- **install_type = root** apps (nvidia-driver, surface-battery, 1panel) are installed to
+  `/usr/local/apps`, NOT to a `/volN` storage volume. Only their `meta` symlink resolves onto a volume.
+- **Hooks run as the app's `run-as` user, never implicitly as root.** `config/privilege`'s
+  `"username"` overrides `"run-as": "root"`, so an app needing root must declare `run-as: root`
+  with NO `username`/`groupname` (see nvidia-driver, 1panel). This bit 1panel: it had to write
+  `/usr/local/bin/1pctl` from `service_preinst` but ran as the `1panel` user, so the write failed
+  with `Permission denied` and the app panicked on every start.
 
 ## ANTI-PATTERNS (THIS PROJECT)
 

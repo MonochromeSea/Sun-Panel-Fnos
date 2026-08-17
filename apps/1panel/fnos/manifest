@@ -6,6 +6,7 @@ maintainer      = 1Panel-dev
 maintainer_url  = https://github.com/1Panel-dev/1Panel
 distributor     = conversun
 distributor_url = https://github.com/conversun/fnos-apps
+install_type    = root
 desktop_uidir   = ui
 desktop_applaunchname = 1panel.Application
 service_port    = 10086
