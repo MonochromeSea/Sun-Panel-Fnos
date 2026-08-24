@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T17:03:11Z",
+  "generated_at": "2026-08-24T02:54:53Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -612,7 +612,7 @@
         "arm"
       ],
       "updated_at": "2026-08-20T08:10:12Z",
-      "download_count": 13,
+      "download_count": 15,
       "app_type": "docker",
       "category": "content"
     },
@@ -834,8 +834,8 @@
       "display_name": "fnOS Apps",
       "description": "fnOS第三方应用中心，支持一键安装、更新和卸载来自conversun/fnos-apps的所有应用。",
       "version": "1.9.1",
-      "fpk_version": "1.9.1-r2",
-      "release_tag": "fnos-apps-store/v1.9.1-r2",
+      "fpk_version": "1.9.1-r3",
+      "release_tag": "fnos-apps-store/v1.9.1-r3",
       "service_port": 8011,
       "homepage_url": "https://github.com/conversun/fnos-store",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/fnos-apps-store/fnos/ICON_256.PNG",
@@ -843,7 +843,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T08:46:15Z",
+      "updated_at": "2026-08-24T02:54:31Z",
       "download_count": 6290,
       "app_type": "native",
       "category": "store"
@@ -1065,8 +1065,8 @@
       "display_name": "Homarr",
       "description": "可视化应用仪表盘，深度集成 *arr 套件状态展示",
       "version": "1.76.0",
-      "fpk_version": "1.76.0",
-      "release_tag": "homarr/v1.76.0",
+      "fpk_version": "1.76.0-r1",
+      "release_tag": "homarr/v1.76.0-r1",
       "service_port": 7575,
       "homepage_url": "https://homarr.dev",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/homarr/fnos/ICON_256.PNG",
@@ -1074,7 +1074,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-22T08:05:02Z",
+      "updated_at": "2026-08-24T02:54:33Z",
       "download_count": 45,
       "app_type": "docker",
       "category": "system"
@@ -1107,8 +1107,8 @@
       "display_name": "Homepage",
       "description": "高度可定制的应用仪表盘，支持 100+ 服务集成",
       "version": "2.1.2",
-      "fpk_version": "2.1.2",
-      "release_tag": "homepage/v2.1.2",
+      "fpk_version": "2.1.2-r1",
+      "release_tag": "homepage/v2.1.2-r1",
       "service_port": 3003,
       "homepage_url": "https://gethomepage.dev",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/homepage/fnos/ICON_256.PNG",
@@ -1116,7 +1116,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-22T08:05:01Z",
+      "updated_at": "2026-08-24T02:54:33Z",
       "download_count": 96,
       "app_type": "docker",
       "category": "system"
@@ -1444,8 +1444,8 @@
       "display_name": "Linkwarden",
       "description": "协作式书签管理器，支持网页存档和标签分类",
       "version": "2.16.1",
-      "fpk_version": "2.16.1",
-      "release_tag": "linkwarden/v2.16.1",
+      "fpk_version": "2.16.1-r1",
+      "release_tag": "linkwarden/v2.16.1-r1",
       "service_port": 3050,
       "homepage_url": "https://linkwarden.app",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/linkwarden/fnos/ICON_256.PNG",
@@ -1453,7 +1453,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-18T08:08:17Z",
+      "updated_at": "2026-08-24T02:54:34Z",
       "download_count": 95,
       "app_type": "docker",
       "category": "content"
@@ -1613,8 +1613,8 @@
       "display_name": "Mealie",
       "description": "自托管食谱管理工具，支持网页导入和家庭共享",
       "version": "3.23.1",
-      "fpk_version": "3.23.1",
-      "release_tag": "mealie/v3.23.1",
+      "fpk_version": "3.23.1-r1",
+      "release_tag": "mealie/v3.23.1-r1",
       "service_port": 9925,
       "homepage_url": "https://mealie.io",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/mealie/fnos/ICON_256.PNG",
@@ -1622,7 +1622,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-19T08:09:02Z",
+      "updated_at": "2026-08-24T02:54:31Z",
       "download_count": 64,
       "app_type": "docker",
       "category": "content"
@@ -1728,7 +1728,7 @@
         "arm"
       ],
       "updated_at": "2026-08-22T08:05:01Z",
-      "download_count": 30,
+      "download_count": 35,
       "app_type": "docker",
       "category": "media"
     },
@@ -1802,8 +1802,8 @@
       "display_name": "MoviePilot",
       "description": "影视自动化管理工具,支持自动订阅、下载、整理和通知。首次启动通过 Web UI 配置。",
       "version": "3.0.0",
-      "fpk_version": "3.0.0-r3",
-      "release_tag": "moviepilot/v3.0.0-r3",
+      "fpk_version": "3.0.0-r4",
+      "release_tag": "moviepilot/v3.0.0-r4",
       "service_port": 3000,
       "homepage_url": "https://github.com/jxxghp/MoviePilot",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/moviepilot/fnos/ICON_256.PNG",
@@ -1811,7 +1811,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T09:51:29Z",
+      "updated_at": "2026-08-24T02:54:34Z",
       "download_count": 383,
       "app_type": "docker",
       "category": "content",
@@ -2771,8 +2771,8 @@
       "display_name": "SuggestArr",
       "description": "基于观影记录自动向 Seerr/Jellyseerr 请求相似影视内容",
       "version": "2.12.0",
-      "fpk_version": "2.12.0-r2",
-      "release_tag": "suggestarr/v2.12.0-r2",
+      "fpk_version": "2.12.0-r3",
+      "release_tag": "suggestarr/v2.12.0-r3",
       "service_port": 5007,
       "homepage_url": "https://github.com/giuseppe99barchetta/SuggestArr",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/suggestarr/fnos/ICON_256.PNG",
@@ -2780,7 +2780,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T06:24:50Z",
+      "updated_at": "2026-08-24T02:54:30Z",
       "download_count": 13,
       "app_type": "docker",
       "category": "media"
@@ -3149,8 +3149,8 @@
       "display_name": "Wizarr",
       "description": "Plex/Jellyfin 用户邀请管理工具，简化媒体库共享流程。",
       "version": "2026.7.1",
-      "fpk_version": "2026.7.1-r3",
-      "release_tag": "wizarr/v2026.7.1-r3",
+      "fpk_version": "2026.7.1-r4",
+      "release_tag": "wizarr/v2026.7.1-r4",
       "service_port": 5690,
       "homepage_url": "https://github.com/wizarrrr/wizarr",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/wizarr/fnos/ICON_256.PNG",
@@ -3158,7 +3158,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T06:24:57Z",
+      "updated_at": "2026-08-24T02:54:29Z",
       "download_count": 16,
       "app_type": "docker",
       "category": "media"
