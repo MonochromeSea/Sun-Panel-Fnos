@@ -1,7 +1,7 @@
 # fnOS Apps
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Apps](https://img.shields.io/badge/apps-155-2ea44f)
+![Apps](https://img.shields.io/badge/apps-157-2ea44f)
 ![Platform](https://img.shields.io/badge/fnOS-third--party-orange)
 
 面向飞牛 fnOS 的第三方应用打包仓库。自动跟踪上游版本，构建可直接安装的 `.fpk` 包。
@@ -72,6 +72,7 @@
 |:---:|---|---:|---|:---:|:---:|
 | <img src="apps/qbittorrent/fnos/ICON.PNG" width="28"> | **qBittorrent** | `8085` | BitTorrent 客户端，默认账号 `admin/adminadmin` | [官网](https://www.qbittorrent.org) | [Release][r-qb] |
 | <img src="apps/transmission/fnos/ICON.PNG" width="28"> | **Transmission** | `9091` | 轻量级 BitTorrent 客户端 | [官网](https://transmissionbt.com) | [Release][r-transmission] |
+| <img src="apps/aria2-next/fnos/ICON.PNG" width="28"> | **Aria2 Next** | `6800` | 活跃维护的 aria2 分支下载引擎（RPC，无内置网页，配 AriaNg 使用） | [GitHub](https://github.com/AnInsomniacy/aria2-next) | [Release][r-aria2-next] |
 | <img src="apps/gopeed/fnos/ICON.PNG" width="28"> | **Gopeed** | `9999` | 高速下载器，支持 HTTP/BT/Magnet | [官网](https://gopeed.com) | [Release][r-gopeed] |
 | <img src="apps/syncthing/fnos/ICON.PNG" width="28"> | **Syncthing** | `8384` | 文件同步工具，P2P 架构 | [官网](https://syncthing.net) | [Release][r-syncthing] |
 | <img src="apps/alist/fnos/ICON.PNG" width="28"> | **Alist** | `5246` | 网盘聚合工具，挂载阿里云盘/百度盘等 | [GitHub](https://github.com/AlistGo/alist) | [Release][r-alist] |
@@ -174,6 +175,7 @@
 | <img src="apps/cloudflared/fnos/ICON.PNG" width="28"> | **Cloudflare Tunnel** | `14333` | Cloudflare 内网穿透隧道，通过 Web 界面管理 Tunnel Token 配置 | [GitHub](https://github.com/WisdomSky/Cloudflared-web) | [Release][r-cloudflared] |
 | <img src="apps/easytier/fnos/ICON.PNG" width="28"> | **EasyTier** | `11210` | 简单安全的去中心化异地组网方案，支持 Web 管理和子网代理 | [GitHub](https://github.com/EasyTier/EasyTier) | [Release][r-easytier] |
 | <img src="apps/mihomo/fnos/ICON.PNG" width="28"> | **Mihomo** | `9097` | Clash.Meta 内核 + MetaCubeXD dashboard，含开箱即用配置模板、TUN 模式与 LAN 混合代理 | [GitHub](https://github.com/MetaCubeX/mihomo) | [Release][r-mihomo] |
+| <img src="apps/opensurge/fnos/ICON.PNG" width="28"> | **OpenSurge** | `61767` | 旁路由透明代理网关（mihomo + dnsmasq + nftables），TUN 模式与按设备分流（另用 7890/53） | [GitHub](https://github.com/funchs/opensurge-fnos) | [Release][r-opensurge] |
 
 ### 🌐 浏览器
 
@@ -377,3 +379,5 @@ fnos-apps/
 [r-miair-next]: https://github.com/conversun/fnos-apps/releases?q=miair-next
 [r-surface-battery]: https://github.com/conversun/fnos-apps/releases?q=surface-battery
 [r-danmu-api]: https://github.com/conversun/fnos-apps/releases?q=danmu-api
+[r-aria2-next]: https://github.com/conversun/fnos-apps/releases?q=aria2-next
+[r-opensurge]: https://github.com/conversun/fnos-apps/releases?q=opensurge
