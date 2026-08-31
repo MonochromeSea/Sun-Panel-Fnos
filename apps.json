@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T15:22:32Z",
+  "generated_at": "2026-08-31T15:31:54Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -153,6 +153,27 @@
       "download_count": 43,
       "app_type": "docker",
       "category": "system"
+    },
+    {
+      "slug": "aria2-next",
+      "appname": "aria2-next",
+      "file_prefix": "aria2-next",
+      "display_name": "Aria2 Next",
+      "description": "活跃维护的 aria2 分支下载引擎（RPC 服务，无内置网页）。支持 HTTP/FTP/BT/磁力/ED2K，JSON-RPC 端口 6800，可用 AriaNg / Motrix Next 等前端连接。",
+      "version": "2.6.8",
+      "fpk_version": "2.6.8",
+      "release_tag": "aria2-next/v2.6.8",
+      "service_port": 6800,
+      "homepage_url": "https://github.com/AnInsomniacy/aria2-next",
+      "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/aria2-next/fnos/ICON_256.PNG",
+      "platforms": [
+        "x86",
+        "arm"
+      ],
+      "updated_at": "2026-08-31T15:31:33Z",
+      "download_count": 0,
+      "app_type": "docker",
+      "category": "download"
     },
     {
       "slug": "astrbot",
@@ -2129,7 +2150,7 @@
         "arm"
       ],
       "updated_at": "2026-08-22T08:05:00Z",
-      "download_count": 203,
+      "download_count": 204,
       "app_type": "docker",
       "category": "content"
     },
@@ -2216,6 +2237,27 @@
       "download_count": 354,
       "app_type": "native",
       "category": "content"
+    },
+    {
+      "slug": "opensurge",
+      "appname": "opensurge",
+      "file_prefix": "opensurge",
+      "display_name": "OpenSurge",
+      "description": "飞牛 NAS 专版透明代理与智能分流方案，基于 mihomo + dnsmasq + nftables，提供 TUN 模式、DHCP 服务器、DNS 劫持、每设备策略等功能。原生适配 fnOS 网络环境，开箱即用。",
+      "version": "0.1.1",
+      "fpk_version": "0.1.1",
+      "release_tag": "opensurge/v0.1.1",
+      "service_port": 61767,
+      "homepage_url": "https://github.com/funchs/opensurge-fnos",
+      "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/opensurge/fnos/ICON_256.PNG",
+      "platforms": [
+        "x86",
+        "arm"
+      ],
+      "updated_at": "2026-08-31T15:31:33Z",
+      "download_count": 0,
+      "app_type": "docker",
+      "category": "network"
     },
     {
       "slug": "paperless-ngx",
@@ -3117,7 +3159,7 @@
         "arm"
       ],
       "updated_at": "2026-08-17T10:46:49Z",
-      "download_count": 224,
+      "download_count": 225,
       "app_type": "docker",
       "category": "network"
     },
