@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T08:03:06Z",
+  "generated_at": "2026-08-31T15:22:32Z",
   "source": {
     "name": "conversun/fnos-apps",
     "url": "https://github.com/conversun/fnos-apps"
@@ -402,7 +402,7 @@
         "arm"
       ],
       "updated_at": "2026-08-24T08:13:41Z",
-      "download_count": 146,
+      "download_count": 148,
       "app_type": "docker",
       "category": "system"
     },
@@ -455,8 +455,8 @@
       "display_name": "CoolerControl",
       "description": "Linux 风扇与散热设备监控控制面板",
       "version": "4.3.1",
-      "fpk_version": "4.3.1-r4",
-      "release_tag": "coolercontrol/v4.3.1-r4",
+      "fpk_version": "4.3.1-r5",
+      "release_tag": "coolercontrol/v4.3.1-r5",
       "service_port": 11987,
       "homepage_url": "https://github.com/codifryed/coolercontrol",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/coolercontrol/fnos/ICON_256.PNG",
@@ -464,7 +464,7 @@
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T09:51:10Z",
+      "updated_at": "2026-08-31T15:21:50Z",
       "download_count": 175,
       "app_type": "docker",
       "category": "system"
@@ -549,7 +549,7 @@
         "arm"
       ],
       "updated_at": "2026-08-30T08:02:07Z",
-      "download_count": 42,
+      "download_count": 47,
       "app_type": "docker",
       "category": "system"
     },
@@ -1033,7 +1033,7 @@
         "arm"
       ],
       "updated_at": "2026-08-18T08:08:07Z",
-      "download_count": 58,
+      "download_count": 59,
       "app_type": "docker",
       "category": "media"
     },
@@ -1054,7 +1054,7 @@
         "arm"
       ],
       "updated_at": "2026-08-17T08:45:57Z",
-      "download_count": 51,
+      "download_count": 52,
       "app_type": "native",
       "category": "network"
     },
@@ -1538,7 +1538,7 @@
         "arm"
       ],
       "updated_at": "2026-08-25T08:12:48Z",
-      "download_count": 22,
+      "download_count": 25,
       "app_type": "docker",
       "category": "media"
     },
@@ -1728,7 +1728,7 @@
         "arm"
       ],
       "updated_at": "2026-08-29T08:02:02Z",
-      "download_count": 63,
+      "download_count": 66,
       "app_type": "docker",
       "category": "media"
     },
@@ -2003,7 +2003,7 @@
         "arm"
       ],
       "updated_at": "2026-08-17T06:23:55Z",
-      "download_count": 96,
+      "download_count": 97,
       "app_type": "native",
       "category": "system"
     },
@@ -2129,7 +2129,7 @@
         "arm"
       ],
       "updated_at": "2026-08-22T08:05:00Z",
-      "download_count": 195,
+      "download_count": 203,
       "app_type": "docker",
       "category": "content"
     },
@@ -2287,16 +2287,16 @@
       "display_name": "PicoClaw",
       "description": "超轻量 AI 智能体框架，Go 编写，10MB 内存占用，支持多模型多通道智能自动化",
       "version": "0.3.1",
-      "fpk_version": "0.3.1-r4",
-      "release_tag": "picoclaw/v0.3.1-r4",
-      "service_port": 18790,
+      "fpk_version": "0.3.1-r5",
+      "release_tag": "picoclaw/v0.3.1-r5",
+      "service_port": 18800,
       "homepage_url": "https://github.com/sipeed/picoclaw",
       "icon_url": "https://raw.githubusercontent.com/conversun/fnos-apps/main/apps/picoclaw/fnos/ICON_256.PNG",
       "platforms": [
         "x86",
         "arm"
       ],
-      "updated_at": "2026-08-17T08:46:25Z",
+      "updated_at": "2026-08-31T15:21:52Z",
       "download_count": 275,
       "app_type": "native",
       "category": "ai"
@@ -3117,7 +3117,7 @@
         "arm"
       ],
       "updated_at": "2026-08-17T10:46:49Z",
-      "download_count": 221,
+      "download_count": 224,
       "app_type": "docker",
       "category": "network"
     },
