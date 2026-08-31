@@ -16,12 +16,12 @@ service_postinst() {
     if [ ! -f "$CONFIG_FILE" ]; then
         cat > "$CONFIG_FILE" << 'EOF'
 # Seeded by the fnOS package. Safe to edit; upgrades keep this file.
-# RPC: reachable from the LAN through the mapped service port, no secret
-# (trusted local network, same default as the rest of the store).
+# RPC: reachable from the LAN through the mapped service port. No secret =
+# the trusted-LAN default. (aria2-next rejects an EMPTY rpc-secret string,
+# so the line must be absent, not blank — verified on fnOS 1.2.0203.)
 enable-rpc=true
 rpc-listen-all=true
 rpc-listen-port=6800
-rpc-secret=
 
 # Downloads land on the data share for this package.
 dir=/downloads
@@ -33,9 +33,6 @@ force-save=true
 # Resume across restarts.
 continue=true
 max-concurrent-downloads=5
-split=16
-max-connection-per-server=16
-min-split-size=1M
 file-allocation=none
 EOF
         chown -R "${TRIM_USERNAME:-aria2-next}:${TRIM_GROUPNAME:-aria2-next}" "${TRIM_PKGVAR}/config" 2>/dev/null || true
