@@ -25,7 +25,7 @@
 | <img src="apps/copaw/fnos/ICON.PNG" width="28"> | **CoPaw** | `8088` | 基于 AgentScope 的个人 AI 助手工作站，支持多渠道聊天、本地大模型和定时任务 | [GitHub](https://github.com/agentscope-ai/CoPaw) | [Release][r-copaw] |
 | <img src="apps/cowagent/fnos/ICON.PNG" width="28"> | **CowAgent** | `9899` | AI 超级助手，支持微信/飞书/钉钉/QQ/Web 等多平台接入，基于大语言模型的智能对话 | [GitHub](https://github.com/zhayujie/chatgpt-on-wechat) | [Release][r-cowagent] |
 | <img src="apps/zeroclaw/fnos/ICON.PNG" width="28"> | **ZeroClaw** | `42617` | 轻量级 AI 智能体运行时，Rust 编写，<5MB 内存占用 | [GitHub](https://github.com/zeroclaw-labs/zeroclaw) | [Release][r-zeroclaw] |
-| <img src="apps/picoclaw/fnos/ICON.PNG" width="28"> | **PicoClaw** | `18790` | 超轻量 AI 智能体框架，Go 编写，10MB 内存占用 | [GitHub](https://github.com/sipeed/picoclaw) | [Release][r-picoclaw] |
+| <img src="apps/picoclaw/fnos/ICON.PNG" width="28"> | **PicoClaw** | `18800` | 超轻量 AI 智能体框架，Go 编写，10MB 内存占用，WebUI 端口 18800（网关 18790） | [GitHub](https://github.com/sipeed/picoclaw) | [Release][r-picoclaw] |
 | <img src="apps/nanobot/fnos/ICON.PNG" width="28"> | **Nanobot** | `18780` | 超轻量 AI 智能体，Web 管理面板，默认账号 `admin/nanobot` | [GitHub](https://github.com/HKUDS/nanobot) | [Release][r-nanobot] |
 | <img src="apps/localai/fnos/ICON.PNG" width="28"> | **LocalAI** | `8185` | 本地 AI 推理，兼容 OpenAI API | [官网](https://localai.io) | [Release][r-localai] |
 | <img src="apps/librechat/fnos/ICON.PNG" width="28"> | **LibreChat** | `3085` | AI 聊天界面，支持多模型 | [官网](https://librechat.ai) | [Release][r-librechat] |
