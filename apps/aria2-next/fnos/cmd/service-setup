@@ -15,25 +15,23 @@ service_postinst() {
     mkdir -p "${TRIM_PKGVAR}/config" "${TRIM_PKGVAR}/state" "${TRIM_PKGVAR}/downloads" 2>/dev/null || true
     if [ ! -f "$CONFIG_FILE" ]; then
         cat > "$CONFIG_FILE" << 'EOF'
-# Seeded by the fnOS package. Safe to edit; upgrades keep this file.
-# RPC: reachable from the LAN through the mapped service port. No secret =
-# the trusted-LAN default. (aria2-next rejects an EMPTY rpc-secret string,
-# so the line must be absent, not blank — verified on fnOS 1.2.0203.)
+# Seeded by the fnOS package — mirrors the image's own default config
+# (/usr/share/aria2-next/aria2.conf). Safe to edit; upgrades keep this file.
+# No rpc-secret line: the trusted-LAN default. aria2-next, unlike upstream
+# aria2, refuses an EMPTY rpc-secret value, so absence is the only way to
+# express "no secret" — verified on fnOS 1.2.0203.
 enable-rpc=true
 rpc-listen-all=true
 rpc-listen-port=6800
 
 # Downloads land on the data share for this package.
 dir=/downloads
-session=/var/lib/aria2-next/session.txt
 input-file=/var/lib/aria2-next/session.txt
+save-session=/var/lib/aria2-next/session.txt
 save-session-interval=60
-force-save=true
-
-# Resume across restarts.
+auto-save-interval=60
 continue=true
 max-concurrent-downloads=5
-file-allocation=none
 EOF
         chown -R "${TRIM_USERNAME:-aria2-next}:${TRIM_GROUPNAME:-aria2-next}" "${TRIM_PKGVAR}/config" 2>/dev/null || true
         install_log "Seeded aria2.conf (RPC on 6800, no secret, dir=/downloads)"
