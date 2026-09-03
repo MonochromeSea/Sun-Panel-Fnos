@@ -71,6 +71,7 @@ sudo chmod 666 /volX/@appdata/sun-panel/docker.sock
 
 # install_callback - 安装时执行一次
 # 创建 docker.sock 软链接，让 Sun-Panel 能访问宿主机 Docker
+# 并自动开放权限（chmod 666）
 
 APP_DATA_DIR="${TRIM_PKGVAR:-$(pwd)}"
 
@@ -81,13 +82,22 @@ if [ -S "/var/run/docker.sock" ]; then
     ln -sf /var/run/docker.sock "$APP_DATA_DIR/docker.sock"
     echo "✅ docker.sock 软链接已创建: $APP_DATA_DIR/docker.sock -> /var/run/docker.sock"
     
-    # 提示用户手动配置权限
-    echo "ℹ️ 请手动执行以下命令以开放 Docker socket 访问权限："
-    echo "  sudo chmod 666 /var/run/docker.sock"
-    echo "  sudo chmod 666 $APP_DATA_DIR/docker.sock"
-    echo ""
-    echo "或更安全的方式：将用户 sun-panel 加入 docker 组："
-    echo "  sudo usermod -aG docker sun-panel"
+    # 自动开放权限（chmod 666），实现到手即用
+    # 修改宿主机 socket 权限
+    if chmod 666 /var/run/docker.sock 2>/dev/null; then
+        echo "✅ 已开放 /var/run/docker.sock 权限 (666)"
+    else
+        echo "⚠️ 无法修改 /var/run/docker.sock 权限，请手动执行：sudo chmod 666 /var/run/docker.sock"
+    fi
+    
+    # 修改软链接权限（影响访问，需要同时修改）
+    if chmod 666 "$APP_DATA_DIR/docker.sock" 2>/dev/null; then
+        echo "✅ 已开放 $APP_DATA_DIR/docker.sock 权限 (666)"
+    else
+        echo "⚠️ 无法修改软链接权限，请手动执行：sudo chmod 666 $APP_DATA_DIR/docker.sock"
+    fi
+    
+    echo "🎉 配置完成，Sun-Panel 的 Docker 管理器应该可以正常使用了！"
 else
     echo "⚠️ 警告: /var/run/docker.sock 不存在，请确认 Docker 服务是否已启动"
 fi
