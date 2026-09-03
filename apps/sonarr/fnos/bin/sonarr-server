@@ -1,6 +1,0 @@
-#!/bin/sh
-APP_DIR="${TRIM_APPDEST}"
-APP_DATA_DIR=$1
-
-cd "$APP_DIR" || exit 1
-exec ./Sonarr -nobrowser -data="$APP_DATA_DIR" -port="${TRIM_SERVICE_PORT}"

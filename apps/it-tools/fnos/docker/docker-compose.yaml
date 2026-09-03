@@ -1,9 +1,0 @@
-services:
-  it-tools:
-    image: ${DOCKER_MIRROR}docker.io/corentinth/it-tools:${VERSION}
-    container_name: it-tools
-    ports:
-      - "${TRIM_SERVICE_PORT}:80"
-    environment:
-      - TZ=Asia/Shanghai
-    restart: unless-stopped

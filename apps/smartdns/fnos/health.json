@@ -1,5 +1,0 @@
-{
-    "type": "tcp",
-    "startup_timeout_seconds": 15,
-    "note": "smartdns is a DNS resolver, no HTTP endpoint on the service_port"
-}

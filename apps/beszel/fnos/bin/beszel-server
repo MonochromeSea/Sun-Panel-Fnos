@@ -1,9 +1,0 @@
-#!/bin/sh
-APP_DIR="${TRIM_APPDEST}"
-APP_DATA_DIR=$1
-
-DATA_DIR="$APP_DATA_DIR/beszel_data"
-mkdir -p "$DATA_DIR"
-
-cd "$APP_DIR" || exit 1
-exec ./beszel serve --http="0.0.0.0:${TRIM_SERVICE_PORT}" --dir "$DATA_DIR"

@@ -1,7 +1,0 @@
-{
-    "defaults": {
-        "run-as": "package"
-    },
-    "username": "nginx-proxy-manager",
-    "groupname": "nginx-proxy-manager"
-}

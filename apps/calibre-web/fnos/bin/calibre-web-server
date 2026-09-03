@@ -1,3 +1,0 @@
-#!/bin/sh
-# Calibre-Web is managed by the fnOS Docker project lifecycle.
-exit 0

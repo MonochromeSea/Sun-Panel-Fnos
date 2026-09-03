@@ -1,9 +1,0 @@
-#!/bin/sh
-APP_DIR="${TRIM_APPDEST}"
-APP_DATA_DIR=$1
-
-CONFIG_FILE="$APP_DATA_DIR/rclone.conf"
-[ -f "$CONFIG_FILE" ] || touch "$CONFIG_FILE"
-
-cd "$APP_DIR" || exit 1
-exec ./rclone rcd --rc-web-gui --rc-addr 0.0.0.0:${TRIM_SERVICE_PORT:-5572} --rc-web-gui-no-open-browser --rc-user admin --rc-pass admin --config "$APP_DATA_DIR/rclone.conf"

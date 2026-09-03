@@ -1,7 +1,0 @@
-{
-    "defaults": {
-        "run-as": "package"
-    },
-    "username": "clouddrive2",
-    "groupname": "clouddrive2"
-}

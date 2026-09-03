@@ -1,6 +1,0 @@
-#!/bin/bash
-
-service_postinst() {
-    mkdir -p "${TRIM_PKGVAR}/config" 2>/dev/null || true
-    mkdir -p "${TRIM_PKGVAR}/cloudflared" 2>/dev/null || true
-}

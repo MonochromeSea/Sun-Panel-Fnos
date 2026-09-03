@@ -1,8 +1,0 @@
-{
-    "defaults": {
-        "run-as": "package"
-    },
-    "username": "vibenvr",
-    "groupname": "vibenvr",
-    "extra-groups": ["video", "render"]
-}

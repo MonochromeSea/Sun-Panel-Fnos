@@ -1,5 +1,0 @@
-#!/bin/bash
-
-service_postinst() {
-    mkdir -p "${TRIM_PKGVAR}/config_files" 2>/dev/null || true
-}
