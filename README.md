@@ -1,39 +1,60 @@
 # Sun-Panel 飞牛原生应用 (FPK)
 
-本应用基于 **[conversun/fnos-apps](https://github.com/conversun/fnos-apps)** 项目中的 Sun-Panel 适配，进行了功能增强（如自动处理 Docker socket 权限），让你在飞牛系统中轻松管理导航面板，并集成了 Docker 管理功能。
+本应用基于 **[conversun/fnos-apps](https://github.com/conversun/fnos-apps)** 项目中的 Sun-Panel 适配，进行了功能增强（**自动创建 Docker socket 软链接并配置环境变量**），让你在飞牛系统中轻松管理导航面板，并集成了 Docker 管理功能。
 
 ## 功能特点
 
 - **原生飞牛应用**：直接安装 `.fpk` 包，无缝融入飞牛应用中心。
 - **Docker 管理器集成**：开箱即用，可在 Sun-Panel 中管理飞牛主机的 Docker 容器。
 - **自动软链接**：安装时自动在应用数据目录创建 `docker.sock` 软链接，并设置 `DOCKER_HOST` 环境变量。
-- **权限智能处理**：默认开放 Docker socket 权限（`chmod 666`）以简化使用，同时提供更安全的手动配置方案。
+- **权限提示明确**：安装后需用户手动完成权限配置（推荐加入 `docker` 组），以保障安全性与功能可用。
 - **轻量 & 高效**：直接使用官方预编译二进制，保持原版性能。
 
 ## 安装
 
-1. 从本仓库的 [Releases](https://github.com/你的用户名/fnos-apps/releases) 下载最新 `.fpk` 文件（或从原项目获取）。
+1. 从本仓库的 [Releases](https://github.com/你的用户名/fnos-apps/releases) 下载最新 `.fpk` 文件。
 2. 在飞牛 fnOS 应用中心，点击“手动安装”，上传 `.fpk` 文件。
 3. 按照提示完成安装。
 
 安装完成后，应用会自动在 `/volX/@appdata/sun-panel/` 目录下创建 `docker.sock` 软链接，指向宿主机的 `/var/run/docker.sock`，并自动设置 `DOCKER_HOST` 环境变量。
 
-## Docker 管理器权限说明
+## Docker 管理器权限配置
 
-Sun-Panel 以系统用户 `sun-panel` 运行，默认情况下没有权限访问 Docker socket。
+Sun-Panel 以系统用户 `sun-panel` 运行，默认情况下没有权限访问 Docker socket。你需要**手动**完成以下任一种配置，才能使 Docker 功能正常工作。
 
-- **自动方案（默认）**：本应用在安装脚本中自动执行 `chmod 666 /var/run/docker.sock`，开放所有用户的读写权限。这能保证开箱即用，但会降低系统安全性（任何本地用户均可控制 Docker）。  
-  *建议在内网环境或可信设备上使用。*
+### 推荐方案（安全，建议优先）
 
-- **推荐方案（更安全）**：你可以通过 SSH 登录飞牛，手动将 `sun-panel` 用户加入 `docker` 组，然后重启应用，即可移除 `666` 权限，改用更严格的 `660` 权限：
-  ```bash
-  sudo usermod -aG docker sun-panel
-  # 然后重启 Sun-Panel 应用或重启 NAS
-  ```
-  恢复 socket 默认权限：
-  ```bash
-  sudo chmod 660 /var/run/docker.sock
-  ```
+将 `sun-panel` 用户加入 `docker` 组，这样无需修改 socket 权限，保持系统安全性。
+
+1. 通过 SSH 登录飞牛系统。
+2. 执行以下命令：
+   ```bash
+   sudo usermod -aG docker sun-panel
+   ```
+   如果 `sudo` 不可用，先切换至 root 用户：
+   ```bash
+   su -
+   usermod -aG docker sun-panel
+   exit
+   ```
+3. **重启 Sun-Panel 应用**（或在飞牛应用中心停止再启动），或重启整个 NAS 使组变更生效。
+
+### 备选方案（临时开放权限，不推荐）
+
+如果因某些原因无法将用户加入 `docker` 组，你也可以通过修改权限临时开放访问（安全性降低，任何本地用户都能控制 Docker）。
+
+请**同时**对以下两个文件执行 `chmod 666`：
+- 宿主机 Docker socket：`/var/run/docker.sock`
+- 应用数据目录下的软链接：`/volX/@appdata/sun-panel/docker.sock`（将 `volX` 替换为实际存储卷）
+
+```bash
+sudo chmod 666 /var/run/docker.sock
+sudo chmod 666 /volX/@appdata/sun-panel/docker.sock
+```
+
+> **注意**：软链接的权限本身不影响访问，但为了与系统 socket 保持一致，建议同时修改。该操作在系统重启后可能失效，需重新执行。
+
+完成配置后，刷新 Sun-Panel 页面，Docker 管理器即可正常使用。
 
 ## 手动更新
 
