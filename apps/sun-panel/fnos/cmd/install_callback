@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# 安装时创建 docker.sock 软链接，仅执行一次
+if [ -S "/var/run/docker.sock" ]; then
+    # 注意：APP_DATA_DIR 在安装时的路径可通过 $1 或 $(pwd) 获取
+    APP_DATA_DIR="${TRIM_PKGVAR:-$(pwd)}"
+    ln -sf /var/run/docker.sock "$APP_DATA_DIR/docker.sock"
+    echo "✅ docker.sock 软链接已在安装时创建"
+else
+    echo "⚠️ 警告: /var/run/docker.sock 不存在，Docker 功能可能不可用"
+fi
+
+# 如果有其他安装初始化逻辑，继续...
+exit 0
