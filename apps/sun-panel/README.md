@@ -57,9 +57,43 @@ sudo chmod 666 /var/run/docker.sock
 sudo chmod 666 /volX/@appdata/sun-panel/docker.sock
 ```
 
-> **注意**：软链接的权限本身不影响访问，但为了与系统 socket 保持一致，建议同时修改。该操作在系统重启后可能失效，需重新执行。
+> **注意**：软链接的权限也要修改，我试过了俩都改才能用Sun-Panel的Docker。该操作在系统重启后可能失效，需重新执行。
 
 完成配置后，刷新 Sun-Panel 页面，Docker 管理器即可正常使用。
+
+---
+
+## 可选择的 `cmd/install_callback` 代码（可选择编译，实现到手即用，但会牺牲安全性）
+
+
+```bash
+#!/bin/bash
+
+# install_callback - 安装时执行一次
+# 创建 docker.sock 软链接，让 Sun-Panel 能访问宿主机 Docker
+
+APP_DATA_DIR="${TRIM_PKGVAR:-$(pwd)}"
+
+echo "正在为 Sun-Panel 配置 Docker 访问..."
+
+if [ -S "/var/run/docker.sock" ]; then
+    # 创建软链接
+    ln -sf /var/run/docker.sock "$APP_DATA_DIR/docker.sock"
+    echo "✅ docker.sock 软链接已创建: $APP_DATA_DIR/docker.sock -> /var/run/docker.sock"
+    
+    # 提示用户手动配置权限
+    echo "ℹ️ 请手动执行以下命令以开放 Docker socket 访问权限："
+    echo "  sudo chmod 666 /var/run/docker.sock"
+    echo "  sudo chmod 666 $APP_DATA_DIR/docker.sock"
+    echo ""
+    echo "或更安全的方式：将用户 sun-panel 加入 docker 组："
+    echo "  sudo usermod -aG docker sun-panel"
+else
+    echo "⚠️ 警告: /var/run/docker.sock 不存在，请确认 Docker 服务是否已启动"
+fi
+
+exit 0
+   ```
 
 ## 手动更新
 
@@ -79,11 +113,7 @@ sudo chmod 666 /volX/@appdata/sun-panel/docker.sock
    ```bash
    ./update_sun-panel.sh
    ```
-3. 使用 `fnpack` 打包：
-   ```bash
-   fnpack build
-   ```
-   生成的 `.fpk` 文件会在当前目录。
+   生成的 `.fpk` 文件会在dist目录。
 
 ## 反馈与支持
 
