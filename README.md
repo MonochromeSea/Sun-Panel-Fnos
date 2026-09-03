@@ -1,13 +1,18 @@
 # Sun-Panel 飞牛原生应用 (FPK)
 
-本应用基于 **[conversun/fnos-apps](https://github.com/conversun/fnos-apps)** 项目中的 Sun-Panel 适配，进行了功能增强（**自动创建 Docker socket 软链接并配置环境变量**），让你在飞牛系统中轻松管理导航面板，并集成了 Docker 管理功能。
+本应用基于 **[conversun/fnos-apps](https://github.com/conversun/fnos-apps)** 项目中的 Sun-Panel 适配，进行了深度增强，**专为解决飞牛原生 fpk 应用中 Docker 管理的痛点而生**。
+
+✨ **核心亮点**：  
+从此告别 `docker.sock` 路径和权限错误！本应用自动创建软链接、设置 `DOCKER_HOST` 环境变量，并提供清晰的权限配置指引，让你在飞牛原生应用内直接管理宿主机 Docker 容器，不再被 `permission denied` 困扰。
+
+---
 
 ## 功能特点
 
 - **原生飞牛应用**：直接安装 `.fpk` 包，无缝融入飞牛应用中心。
 - **Docker 管理器集成**：开箱即用，可在 Sun-Panel 中管理飞牛主机的 Docker 容器。
 - **自动软链接**：安装时自动在应用数据目录创建 `docker.sock` 软链接，并设置 `DOCKER_HOST` 环境变量。
-- **权限提示明确**：安装后需用户手动完成权限配置（推荐加入 `docker` 组），以保障安全性与功能可用。
+- **权限指引清晰**：安装后提供简单明了的权限配置步骤（推荐加入 `docker` 组），确保安全与功能的完美平衡。
 - **轻量 & 高效**：直接使用官方预编译二进制，保持原版性能。
 
 ## 安装
